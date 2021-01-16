@@ -20,25 +20,12 @@ app.use((req, res, next) => {
 app.use(express.static(PUBLIC_DIR));
 
 
-app.get('/api/users', (req, res) => {
-  Users.find( function (err, users) {
-    if (err) {
-      res.status(404).send(err)
-    } else {
-      res.send(users)
-    }
+app.get('/', (req, res) => {
+    res.send('Hello World')
   })
 })
 
-app.get('/api/listing/reviews', (req, res) => {
-  Reviews.find( function (err, reviews) {
-    if (err) {
-      res.status(404).send(err)
-    } else {
-      res.send(reviews)
-    }
-  })
-})
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

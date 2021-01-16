@@ -8,12 +8,12 @@ class App extends React.Component {
   }
   // bind statements go here
 
-  componentDidMount() {
-    axios.get('/api/listing/reviews')
-      .then((response) => {
-        console.log(response);
-      });
-  }
+  // componentDidMount() {
+  //   axios.get('/api/listing/reviews')
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
+  // }
 
   render() {
     return (
