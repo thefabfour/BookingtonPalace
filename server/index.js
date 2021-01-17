@@ -20,7 +20,6 @@ app.use((req, res, next) => {
 app.use(express.static(PUBLIC_DIR));
 
 app.get('/api/users', (req, res) => {
-
   Users.find( function (err, users) {
     if (err) {
       res.status(404).send(err)
@@ -31,7 +30,7 @@ app.get('/api/users', (req, res) => {
 })
 
 app.get('/api/listing/reviews', (req, res) => {
-  Reviews.find( function (err, reviews) {
+  Reviews.find(function (err, reviews) {
     if (err) {
       res.status(404).send(err)
     } else {

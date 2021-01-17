@@ -58,8 +58,8 @@ for (let i = 0; i < 100; i += 1) {
 const insertSampleReviews = () => Reviews.create(sampleReviews);
 const insertSampleUsers = () => Users.create(sampleUsers);
 
-console.table(sampleReviews[0])
-console.table(sampleUsers)
+// console.table(sampleReviews[0])
+// console.table(sampleUsers)
 
 Promise.all([insertSampleReviews(), insertSampleUsers()])
   .then(() => {
