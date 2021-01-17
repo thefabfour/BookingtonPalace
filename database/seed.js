@@ -1,3 +1,4 @@
+// seed code for reviews & users
 const faker = require('faker');
 const db = require('./index.js');
 const Reviews = require('./Reviews.js');
@@ -19,7 +20,7 @@ for (let i = 0; i < 100; i += 1) {
     const userId = 2000 + k;
     allReviews.push({
       user_id: userId,
-      body: faker.lorem.sentence(),
+      body: faker.lorem.paragraph(),
       entry_date: faker.date.past(),
       category: listingCategory,
     });
@@ -30,13 +31,13 @@ for (let i = 0; i < 100; i += 1) {
     listing_id: listingId,
     all_reviews: allReviews,
     review_ratings: {
-      number_reviews: faker.random.number({ min: 1, max: 5 }),
-      cleanliness_avg: faker.random.number({ min: 1, max: 5 }),
-      communication_avg: faker.random.number({ min: 1, max: 5 }),
-      checkIn_avg: faker.random.number({ min: 1, max: 5 }),
-      accuracy_avg: faker.random.number({ min: 1, max: 5 }),
-      lcoation_avg: faker.random.number({ min: 1, max: 5 }),
-      value_avg: faker.random.number({ min: 1, max: 5 }),
+      number_reviews: faker.random.number({ min: 3, max: 5 }),
+      cleanliness_avg: faker.random.number({ min: 3, max: 5 }),
+      communication_avg: faker.random.number({ min: 3, max: 5 }),
+      checkIn_avg: faker.random.number({ min: 3, max: 5 }),
+      accuracy_avg: faker.random.number({ min: 3, max: 5 }),
+      lcoation_avg: faker.random.number({ min: 3, max: 5 }),
+      value_avg: faker.random.number({ min: 3, max: 5 }),
     },
   });
 }
@@ -57,8 +58,8 @@ for (let i = 0; i < 100; i += 1) {
 const insertSampleReviews = () => Reviews.create(sampleReviews);
 const insertSampleUsers = () => Users.create(sampleUsers);
 
-// console.table(sampleReviews[0])
-// console.table(sampleUsers)
+console.table(sampleReviews[0])
+console.table(sampleUsers)
 
 Promise.all([insertSampleReviews(), insertSampleUsers()])
   .then(() => {
