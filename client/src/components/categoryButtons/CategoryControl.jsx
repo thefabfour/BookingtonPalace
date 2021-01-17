@@ -7,68 +7,56 @@ class categoryControl extends React.Component {
     this.state = {
       numCategories: undefined,
       isLongList: false,
-      showMoreButton: false
+      showMoreButton: false,
     };
 
-     // bind statements go here
-     this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-
     this.setState(
-      {numCategories: this.props.categories.length}, () => {
+      { numCategories: this.props.categories.length }, () => {
         if (this.state.numCategories >= 5) {
-          this.setState({isLongList:true})
+          this.setState({
+            isLongList: true });
         }
-      }
-    )
+      },
+    );
   }
-
 
   handleClick() {
-    // console.log('Hi from handleClick', this.state.showMoreCategories)
-    this.setState({showMoreButton: !this.state.showMoreButton}, () => {
-
-    }
-
-    )
-
-    // this.formatCategories(this.state.showMoreCategories)
-
-
+    this.setState({ showMoreButton: !this.state.showMoreButton }, () => {});
   }
 
-  changeView() {
-const showMore = this.state.showMoreButton;
-
- if (showMore) {
-      return <ButtonsDisplay categories={this.props.categories} />
-
+  formatCategories() {
+    if (this.state.isLongList && !this.state.showMoreButton) {
+      const shortCategoryList = this.props.categories.slice(0, 4);
+      return <ButtonsDisplay categories={shortCategoryList} />
     } else {
       return <ButtonsDisplay categories={this.props.categories} />
     }
   }
 
+  formatShowButton() {
+    if (this.state.isLongList) {
+      return <button onClick={this.handleClick}> {this.state.showMoreButton ? 'Show Less' : 'Show More'} </button>
+    } else {
+      return <div></div>
+    }
+  }
+
 
   render() {
-    let catsRendered = this.changeView()
-
-    // const showMore = this.state.showMoreBtnActive;
-
-
-
+    let catsRendered = this.formatCategories();
+    let showButton = this.formatShowButton();
 
     return (
       <div>
         {catsRendered}
-        <button onClick={this.handleClick}> {this.state.showMoreButton ? 'Show Less' : 'Show More'} </button>
+        {showButton}
       </div>
-    )
+    );
   }
-
 }
-
-
 
 export default categoryControl;
