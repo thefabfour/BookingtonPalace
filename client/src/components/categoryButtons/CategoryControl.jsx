@@ -1,62 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ButtonsDisplay from './ButtonsDisplay.jsx'
 
-class categoryControl extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      numCategories: undefined,
-      isLongList: false,
-      showMoreButton: false,
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState(
-      { numCategories: this.props.categories.length }, () => {
-        if (this.state.numCategories >= 5) {
-          this.setState({
-            isLongList: true });
-        }
-      },
-    );
-  }
-
-  handleClick() {
-    this.setState({ showMoreButton: !this.state.showMoreButton }, () => {});
-  }
-
-  formatCategories() {
-    if (this.state.isLongList && !this.state.showMoreButton) {
-      const shortCategoryList = this.props.categories.slice(0, 4);
-      return <ButtonsDisplay categories={shortCategoryList} />
-    } else {
-      return <ButtonsDisplay categories={this.props.categories} />
+export default function categoryControl(props) {
+  const [isLongList, setIsLongList] = useState(false);
+  useEffect(() => {
+    if (props.categories.length >= 5) {
+      setIsLongList(true);
     }
-  }
+  }, []);
 
-  formatShowButton() {
-    if (this.state.isLongList) {
-      return <button onClick={this.handleClick}> {this.state.showMoreButton ? 'Show Less' : 'Show More'} </button>
+  const [isShowMoreClicked, setIsShowMoreClicked] = useState(false);
+
+  const handleShowMoreClick = () => {
+    setIsShowMoreClicked(!isShowMoreClicked);
+  };
+
+  if (isLongList) {
+    let lengthList;
+
+    if (isShowMoreClicked) {
+      lengthList = props.categories;
     } else {
-      return <div></div>
+      lengthList = props.categories.slice(0, 4);
     }
-  }
-
-
-  render() {
-    let catsRendered = this.formatCategories();
-    let showButton = this.formatShowButton();
-
     return (
       <div>
-        {catsRendered}
-        {showButton}
+        <ButtonsDisplay categories={lengthList} />
+        <button type="button" onClick={handleShowMoreClick}> {isShowMoreClicked ? 'Show Less' : 'Show More'} </button>
       </div>
     );
   }
+  return (
+    <div>
+      <ButtonsDisplay categories={props.categories} />
+    </div>
+  );
 }
-
-export default categoryControl;

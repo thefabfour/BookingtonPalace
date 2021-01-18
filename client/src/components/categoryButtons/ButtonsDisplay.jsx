@@ -5,10 +5,8 @@ const ButtonsDisplay = (props) => (
     <div>
       {props.categories.map((category) =>
       <button> {category.title}  {category.count} </button>
-
       )}
     </div>
-
   </div>
 );
 
