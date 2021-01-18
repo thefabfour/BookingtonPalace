@@ -1,6 +1,7 @@
 import React from 'react';
 import ButtonsDisplay from './ButtonsDisplay.jsx'
 
+
 class categoryControl extends React.Component {
   constructor(props) {
     super(props);
