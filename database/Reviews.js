@@ -1,5 +1,6 @@
+// below is code for reviews
 const mongoose = require('mongoose');
-// const db = require('./index.js');
+const db = require('./index.js');
 
 const reviewsSchema = new mongoose.Schema({
   listing_id: Number,
