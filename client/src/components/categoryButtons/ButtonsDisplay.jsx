@@ -11,7 +11,6 @@ const ButtonsDisplay = (props) => (
 
       )}
     </div>
-
   </div>
 );
 
