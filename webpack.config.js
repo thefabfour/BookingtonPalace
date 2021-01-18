@@ -10,10 +10,23 @@ module.exports = {
           loader: 'babel-loader', // Allows Babel and Webpack to work together
           options: {
             presets: ['@babel/preset-react', '@babel/preset-env'] // Environment Presets... Not 100% what these do
+          },
+          {
+            test: [/\.css$/],
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  presets: {
+                    modules:true,
+                  },
+                }
+              }
+
+            ]
           }
-        }
-      }
-    ]
+        ]
   },
    output: { // IMPORTANT: This is where we set the bundle to be built into a folder
     filename: 'bundle.js', // The name of the file to build
