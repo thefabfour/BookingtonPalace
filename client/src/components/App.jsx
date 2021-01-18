@@ -41,6 +41,11 @@ class App extends React.Component {
         this.setState({reviews: response.data})
         // console.log('the state is now', this.state)
       })
+      .catch(function(error) {
+        if (!error.status) {
+          // network error
+        }
+      });
 
     axios.get('/api/users')
       .then((users) => {
@@ -48,6 +53,11 @@ class App extends React.Component {
         this.setState({users: users.data})
         // console.log('the state is now', this.state)
       })
+      .catch(function(error) {
+        if (!error.status) {
+          // network error
+        }
+      });
 
   }
 
