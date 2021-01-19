@@ -1,14 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import CategoryControl from './categoryButtons/CategoryControl'
-import UserReviewsControl from './userReviews/UserReviewsControl';
+import UserReviews from './userReviews/UserReviews';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       reviews: [],
-      users: [],
       categories: [
         {title: "Responsive host",
         count: 2},
@@ -38,7 +37,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/api/listing/reviews')
       .then((response) => {
-        // console.log(response);
+        console.log(response);
         this.setState({reviews: response.data})
         // console.log('the state is now', this.state)
       })
@@ -67,7 +66,7 @@ class App extends React.Component {
       <div>
         Hi from App!
         <CategoryControl categories={this.state.categories}/>
-        <UserReviewsControl categories={this.state.categories}/>
+        <UserReviews reviews={this.state.reviews}/>
       </div>
     );
   }
