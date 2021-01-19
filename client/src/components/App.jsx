@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import CategoryControl from './categoryButtons/CategoryControl'
 import UserReviews from './userReviews/UserReviews';
+import faker from 'faker';
 
 class App extends React.Component {
   constructor() {
