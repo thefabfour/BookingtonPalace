@@ -2,11 +2,7 @@ import React from 'react';
 import UserReviewsControl from './UserReviewsControl';
 
 
-function UserReviews (props) {
-const leftList = props.
-
-}
-
+const UserReviews = (props) => (
      <div>
       Hi from UserReviews
     </div>
