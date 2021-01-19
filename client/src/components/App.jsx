@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import CategoryControl from './categoryButtons/CategoryControl.jsx'
+import CategoryControl from './categoryButtons/CategoryControl'
+import UserReviewsControl from './userReviews/UserReviewsControl';
 
 class App extends React.Component {
   constructor() {
@@ -66,7 +67,7 @@ class App extends React.Component {
       <div>
         Hi from App!
         <CategoryControl categories={this.state.categories}/>
-
+        <UserReviewsControl categories={this.state.categories}/>
       </div>
     );
   }
