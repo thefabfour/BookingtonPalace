@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ButtonsDisplay from './ButtonsDisplay.jsx'
 
-export default function categoryControl(props) {
+export default function categoryControl({ categories }) {
   const [isLongList, setIsLongList] = useState(false);
   useEffect(() => {
-    if (props.categories.length >= 5) {
+    if (categories.length >= 5) {
       setIsLongList(true);
     }
   }, []);
@@ -19,9 +19,9 @@ export default function categoryControl(props) {
     let lengthList;
 
     if (isShowMoreClicked) {
-      lengthList = props.categories;
+      lengthList = categories;
     } else {
-      lengthList = props.categories.slice(0, 4);
+      lengthList = categories.slice(0, 4);
     }
     return (
       <div>
@@ -32,7 +32,7 @@ export default function categoryControl(props) {
   }
   return (
     <div>
-      <ButtonsDisplay categories={props.categories} />
+      <ButtonsDisplay categories={categories} />
     </div>
   );
 }
