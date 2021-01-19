@@ -1,10 +1,12 @@
 import React from 'react';
+import ReviewHeader from './ReviewHeader';
 
 
 const ShortReviewRender = (props) => (
-     <div>
-      Hi from Review Header
-    </div>
+  <div>
+    <ReviewHeader review={props.review}/>
+    <div>{props.review.body}</div>
+  </div>
 )
 
 export default ShortReviewRender;
