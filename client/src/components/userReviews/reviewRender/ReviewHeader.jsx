@@ -1,8 +1,12 @@
 import React from 'react';
+import classes from '../UserReviews.module.css';
+import moment from 'moment';
 
 const ReviewsHeader = (props) => (
      <div>
-      Hi from Review Header
+       <img className={classes.userPhoto} src={props.review.user_info.pictureUrl} />
+       <div>{props.review.user_info.firstName}</div>
+       <div> {moment(props.review.entry_date).format("MMMM YYYY")}</div>
     </div>
 )
 

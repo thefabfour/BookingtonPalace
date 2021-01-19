@@ -17,7 +17,6 @@ export default function UserReviewsControl({review}) {
       </div>
     );
   }
-
   return (
     <div>
       <ShortReviewRender review={review}/>

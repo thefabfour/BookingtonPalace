@@ -38,7 +38,7 @@ for (let i = 0; i < 100; i += 1) {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         email: faker.internet.email(),
-        pictureUrl: faker.image.imageUrl(),
+        pictureUrl: "https://source.unsplash.com/collection/888146/300x300",
         password: faker.internet.password(),
       },
       body: faker.lorem.paragraph(),
