@@ -16,15 +16,12 @@ class App extends React.Component {
     axios.get('/api/listing/reviews')
       .then((response) => {
         console.log(response);
-
-        this.setState({
-          reviews: response.data,
-        })
+        this.setState({reviews: response.data})
         console.log('the state is now', this.state)
       })
-      .catch((error) => {
+      .catch(function(error) {
         if (!error.status) {
-          return;
+          // network error
         }
       });
   }
