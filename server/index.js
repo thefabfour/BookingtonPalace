@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const Reviews = require('../database/Reviews.js');
-const Users = require('../database/Users.js');
 
 const app = express();
 const port = 3000;
@@ -19,19 +18,9 @@ app.use((req, res, next) => {
 
 app.use(express.static(PUBLIC_DIR));
 
-app.get('/api/users', (req, res) => {
-
-  Users.find( function (err, users) {
-    if (err) {
-      res.status(404).send(err)
-    } else {
-      res.send(users)
-    }
-  })
-})
-
 app.get('/api/listing/reviews', (req, res) => {
-  Reviews.find( function (err, reviews) {
+  const query = Reviews.where({listing_id: 30506102})
+  query.findOne( function (err, reviews) {
     if (err) {
       res.status(404).send(err)
     } else {

@@ -1,15 +1,15 @@
 import React from 'react';
 import axios from 'axios';
+import CategoryControl from './categoryButtons/CategoryControl.jsx'
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       reviews: [],
-      users: []
+      users: [],
+      categories: [],
     };
-
-     // bind statements go here
   }
 
   componentDidMount() {
@@ -19,20 +19,24 @@ class App extends React.Component {
         this.setState({reviews: response.data})
         console.log('the state is now', this.state)
       })
-      .then(axios.get('/api/users'))
-      .then((users) => {
-        console.log(users)
-        this.setState({users: users.data})
-        console.log('the state is now', this.state)
-      })
-
+      .catch(function(error) {
+        if (!error.status) {
+          // network error
+        }
+      });
   }
 
   render() {
     return (
-      <div>Hi from App!</div>
+      <div>
+        Hi from App!
+        <CategoryControl categories={this.state.categories}/>
+
+      </div>
     );
   }
 }
 
 export default App;
+
+
