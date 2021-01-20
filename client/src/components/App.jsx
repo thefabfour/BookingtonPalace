@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import CategoryControl from './categoryButtons/CategoryControl.jsx'
+import CategoryControl from './categoryButtons/CategoryControl';
+import UserReviews from './userReviews/UserReviews';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       reviews: [],
-      users: [],
       categories: [],
     };
   }
@@ -16,12 +16,12 @@ class App extends React.Component {
     axios.get('/api/listing/reviews')
       .then((response) => {
         console.log(response);
-        this.setState({reviews: response.data})
-        console.log('the state is now', this.state)
+        this.setState({ reviews: response.data.all_reviews });
+        console.log('the state is now', this.state);
       })
-      .catch(function(error) {
+      .catch((error) => {
         if (!error.status) {
-          // network error
+          return;
         }
       });
   }
@@ -31,12 +31,10 @@ class App extends React.Component {
       <div>
         Hi from App!
         <CategoryControl categories={this.state.categories}/>
-
+        <UserReviews reviews={this.state.reviews} />
       </div>
     );
   }
 }
 
 export default App;
-
-
