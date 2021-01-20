@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 app.use(express.static(PUBLIC_DIR));
 
 app.get('/api/listing/reviews', (req, res) => {
-  const query = Reviews.where({listing_id: 30506102})
+  const query = Reviews.where({listing_id: 30506104})
   query.findOne( function (err, reviews) {
     if (err) {
       res.status(404).send(err)
