@@ -14,3 +14,13 @@
   font-weight: 500;
   font-size: 1.1rem;
 }
+
+.container{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.item{
+  align-items: flex-start;
+  width: 160px;
+}

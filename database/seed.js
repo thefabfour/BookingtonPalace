@@ -38,7 +38,7 @@ for (let i = 0; i < 100; i += 1) {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         email: faker.internet.email(),
-        pictureUrl: "https://source.unsplash.com/collection/888146/300x300",
+        pictureUrl: "https://source.unsplash.com/collection/888146/300x300"+"?dummy=848474" +k,
         password: faker.internet.password(),
       },
       body: faker.lorem.paragraph(),
@@ -52,15 +52,15 @@ for (let i = 0; i < 100; i += 1) {
     listing_id: listingId,
     all_reviews: allReviews,
     review_categories: reviewCategories,
-    review_ratings: {
-      number_reviews: faker.random.float({min: 3, max: 5, precision: .1}),
-      cleanliness_avg: faker.random.float({min: 3, max: 5, precision: .1}),
-      communication_avg: faker.random.float({min: 3, max: 5, precision: .1}),
-      checkIn_avg: faker.random.float({min: 3, max: 5, precision: .1}),
-      accuracy_avg: faker.random.float({min: 3, max: 5, precision: .1}),
-      lcoation_avg: faker.random.float({min: 3, max: 5, precision: .1}),
-      value_avg: faker.random.float({min: 3, max: 5, precision: .1}),
-    },
+    review_ratings: [
+      {title: "Number Reviews", rating: faker.random.float({min: 3, max: 5, precision: .1})},
+      {title: "Cleanliness", rating: faker.random.float({min: 3, max: 5, precision: .1})},
+      {title: "Communicatoin", rating: faker.random.float({min: 3, max: 5, precision: .1})},
+      {title: "Check-In", rating: faker.random.float({min: 3, max: 5, precision: .1})},
+      {title: "Accuracy", rating: faker.random.float({min: 3, max: 5, precision: .1})},
+      {title: "Location", rating: faker.random.float({min: 3, max: 5, precision: .1})},
+      {title: "Value", rating: faker.random.float({min: 3, max: 5, precision: .1})},
+    ],
   });
 }
 
