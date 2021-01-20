@@ -12,3 +12,7 @@
   border-radius: inherit;
   transition: width .2s ease-in;
 }
+
+.rating{
+  padding: 50px;
+}

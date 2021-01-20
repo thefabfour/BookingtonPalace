@@ -4,7 +4,7 @@ import classes from './Graph.module.css'
 
 function GraphRender({rating}) {
 
-  const percentage = (rating.number/5)*100;
+  const percentage = (rating.rating/5)*100;
 
   function Filler(precentage){
     return <div className={classes.filler} style={{width:`${precentage}%`}}/>
@@ -13,9 +13,9 @@ function GraphRender({rating}) {
   const fill = Filler(percentage)
 
   return (
-    <div>
-     <div className={classes.ratingBar}>
+    <div className={classes.rating}>
        {rating.title}
+     <div className={classes.ratingBar}>
        {fill}
      </div>
   </div>

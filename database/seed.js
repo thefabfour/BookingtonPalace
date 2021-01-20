@@ -66,9 +66,9 @@ for (let i = 0; i < 100; i += 1) {
 
 const insertSampleReviews = () => Reviews.create(sampleReviews);
 
-// console.log(sampleReviews[1])
+console.log(sampleReviews[1])
 
-Promise.all([insertSampleReviews()])
+insertSampleReviews()
   .then(() => {
     db.close();
   })

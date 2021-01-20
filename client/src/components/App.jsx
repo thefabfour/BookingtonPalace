@@ -10,7 +10,16 @@ class App extends React.Component {
       reviews: [],
       users: [],
       categories: [],
-      reviewRatings: {},
+      reviewRatings: [
+          {title: "Number Reviews", rating: 4.4},
+          {title: "Cleanliness", rating: 4.5},
+          {title: "Communication", rating: 5},
+          {title: "Check-In", rating: 4.2},
+          {title: "Accuracy", rating: 4.7},
+          {title: "Looation", rating: 4},
+          {title: "Value", rating: 5},
+        ]
+     ,
     };
   }
 
@@ -20,7 +29,6 @@ class App extends React.Component {
         console.log(response);
         this.setState({
           reviews: response.data,
-          reviewRatings: response.data.review_ratings
         })
         console.log('the state is now', this.state)
       })
@@ -35,7 +43,7 @@ class App extends React.Component {
     return (
       <div>
         Hi from App!
-        <CategoryGraphs ratings={this.state.reviewRatings}/>
+        <CategoryGraphs ratings={this.state.reviewRatings} />
         <CategoryControl categories={this.state.categories}/>
 
       </div>
