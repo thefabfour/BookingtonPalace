@@ -1,23 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
-=======
-<<<<<<< HEAD
-import CategoryControl from './categoryButtons/CategoryControl.jsx'
-import Modal from './modal/Modal'
-=======
-import CategoryControl from './categoryButtons/CategoryControl';
-import UserReviews from './userReviews/UserReviews';
->>>>>>> master
->>>>>>> master
-=======
-import CategoryControl from './categoryButtons/CategoryControl';
 import UserReviews from './userReviews/UserReviews';
 import Modal from './modal/Modal';
->>>>>>> master
+
 
 class App extends React.Component {
   constructor() {
@@ -25,7 +13,6 @@ class App extends React.Component {
     this.state = {
       reviews: [],
       categories: [],
-<<<<<<< HEAD
       reviewRatings: [
           {title: "Number Reviews", rating: 4.4},
           {title: "Cleanliness", rating: 4.5},
@@ -34,11 +21,8 @@ class App extends React.Component {
           {title: "Accuracy", rating: 4.7},
           {title: "Looation", rating: 4},
           {title: "Value", rating: 5},
-        ]
-     ,
-=======
-      showModal: false,
->>>>>>> master
+        ],
+        showModal: false,
     };
 
   }
@@ -47,15 +31,10 @@ class App extends React.Component {
     axios.get('/api/listing/reviews')
       .then((response) => {
         console.log(response);
-<<<<<<< HEAD
         this.setState({
-          reviews: response.data,
+          reviews: response.data.all_reviews,
         })
         console.log('the state is now', this.state)
-=======
-        this.setState({ reviews: response.data.all_reviews });
-        console.log('the state is now', this.state);
->>>>>>> master
       })
       .catch((error) => {
         if (!error.status) {
