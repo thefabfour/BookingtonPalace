@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import CategoryControl from './categoryButtons/CategoryControl.jsx'
+import CategoryControl from './categoryButtons/CategoryControl';
+import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 
 class App extends React.Component {
   constructor() {
@@ -9,6 +10,7 @@ class App extends React.Component {
       reviews: [],
       users: [],
       categories: [],
+      reviewRatings: {},
     };
   }
 
@@ -16,7 +18,10 @@ class App extends React.Component {
     axios.get('/api/listing/reviews')
       .then((response) => {
         console.log(response);
-        this.setState({reviews: response.data})
+        this.setState({
+          reviews: response.data,
+          reviewRatings: response.data.review_ratings
+        })
         console.log('the state is now', this.state)
       })
       .catch(function(error) {
@@ -30,6 +35,7 @@ class App extends React.Component {
     return (
       <div>
         Hi from App!
+        <CategoryGraphs ratings={this.state.reviewRatings}/>
         <CategoryControl categories={this.state.categories}/>
 
       </div>

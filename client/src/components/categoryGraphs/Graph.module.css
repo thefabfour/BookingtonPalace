@@ -1,0 +1,14 @@
+.ratingBar{
+  position: relative;
+  height: 5px;
+  width: 100px;
+  border-radius:10px;
+  background: #929494
+}
+
+.filler {
+  background: #040e0d;
+  height: 100%;
+  border-radius: inherit;
+  transition: width .2s ease-in;
+}
