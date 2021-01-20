@@ -4,7 +4,6 @@ import axios from 'axios';
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 import UserReviews from './userReviews/UserReviews';
-import Modal from './modal/Modal';
 import ShowAll from './showAll/ShowAll'
 
 
@@ -74,12 +73,12 @@ class App extends React.Component {
         <CategoryGraphs ratings={this.state.reviewRatings} />
         <CategoryControl categories={this.state.categories}/>
         <UserReviews reviews={this.state.reviews}/>
-        <Modal show={this.state.showModal} close={this.closeModal.bind(this)}>
-          <Modal.Header >
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          {/* <ShowAll reviews={this.state.reviews} categories={this.state.categories} ratings={this.state.reviewRatings}/> */}
-        </Modal>
+
+        <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}>
+          <CategoryGraphs ratings={this.state.reviewRatings} />
+          <CategoryControl categories={this.state.categories}/>
+          <UserReviews reviews={this.state.reviews}/>
+        </ShowAll>
     <button type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
 
       </div>
