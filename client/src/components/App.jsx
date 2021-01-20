@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 =======
@@ -11,6 +12,11 @@ import Modal from './modal/Modal'
 import CategoryControl from './categoryButtons/CategoryControl';
 import UserReviews from './userReviews/UserReviews';
 >>>>>>> master
+>>>>>>> master
+=======
+import CategoryControl from './categoryButtons/CategoryControl';
+import UserReviews from './userReviews/UserReviews';
+import Modal from './modal/Modal';
 >>>>>>> master
 
 class App extends React.Component {
@@ -77,15 +83,12 @@ class App extends React.Component {
         Hi from App!
         <CategoryGraphs ratings={this.state.reviewRatings} />
         <CategoryControl categories={this.state.categories}/>
-<<<<<<< HEAD
+        <UserReviews reviews={this.state.reviews}/>
         <Modal show={this.state.showModal} close={this.closeModal.bind(this)}>
           <div> Hi from modal</div>
         </Modal>
     <button type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
 
-=======
-        <UserReviews reviews={this.state.reviews} />
->>>>>>> master
       </div>
     );
   }
