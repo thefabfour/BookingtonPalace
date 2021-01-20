@@ -12,7 +12,17 @@ class App extends React.Component {
     super();
     this.state = {
       reviews: [],
-      categories: [],
+      categories: [
+          { title: 'Central location', count: 1 },
+          { title: 'Responsive host', count: 2 },
+          { title: 'Helpful host', count: 2 },
+          { title: 'Great restaurants', count: 2 },
+          { title: 'Easy check-in', count: 4 },
+          { title: 'Friendly host', count: 2 },
+          { title: 'Great views', count: 1 },
+          { title: 'Thoughtful touches', count: 1 },
+          { title: 'Great location', count: 1 }
+      ],
       reviewRatings: [
           {title: "Number Reviews", rating: 4.4},
           {title: "Cleanliness", rating: 4.5},
