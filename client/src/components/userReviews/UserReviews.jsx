@@ -1,24 +1,18 @@
 import React from 'react';
 import UserReviewsControl from './UserReviewsControl';
+import classes from './UserReviews.module.css';
 
 function UserReviews({reviews}) {
-  const leftArr = reviews.slice(1,4);
-  const rightArr = reviews.slice(5,8);
-
-  const leftList = leftArr.map((review) => <UserReviewsControl review={review} />);
-
-  const rightList = rightArr.map((review) => <UserReviewsControl review={review} />);
+  const itemsArr = reviews.slice(1,7);
+  const reviewsList = itemsArr.map((review, index) => <UserReviewsControl review={review} index={index}/>);
 
   return (
-    <div>
-      <ul>
-        {leftList}
-      </ul>
-      <ul>
-        {rightList}
-      </ul>
+    <div className={classes.parent}>
+      {reviewsList}
     </div>
   );
 }
 
 export default UserReviews;
+
+

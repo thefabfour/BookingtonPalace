@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 import UserReviews from './userReviews/UserReviews';
 import Modal from './modal/Modal';
+import classes from './App.module.css';
 
 
 class App extends React.Component {
@@ -12,26 +12,8 @@ class App extends React.Component {
     super();
     this.state = {
       reviews: [],
-      categories: [
-          { title: 'Central location', count: 1 },
-          { title: 'Responsive host', count: 2 },
-          { title: 'Helpful host', count: 2 },
-          { title: 'Great restaurants', count: 2 },
-          { title: 'Easy check-in', count: 4 },
-          { title: 'Friendly host', count: 2 },
-          { title: 'Great views', count: 1 },
-          { title: 'Thoughtful touches', count: 1 },
-          { title: 'Great location', count: 1 }
-      ],
-      reviewRatings: [
-          {title: "Number Reviews", rating: 4.4},
-          {title: "Cleanliness", rating: 4.5},
-          {title: "Communication", rating: 5},
-          {title: "Check-In", rating: 4.2},
-          {title: "Accuracy", rating: 4.7},
-          {title: "Looation", rating: 4},
-          {title: "Value", rating: 5},
-        ],
+      categories: [],
+      reviewRatings: [],
         showModal: false,
     };
 
@@ -43,6 +25,8 @@ class App extends React.Component {
         console.log(response);
         this.setState({
           reviews: response.data.all_reviews,
+          reviewRatings: response.data.review_ratings,
+          reviewCategories: response.data.review_categories,
         })
         console.log('the state is now', this.state)
       })
@@ -68,7 +52,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={classes.container}>
         Hi from App!
         <CategoryGraphs ratings={this.state.reviewRatings} />
         <CategoryControl categories={this.state.categories}/>

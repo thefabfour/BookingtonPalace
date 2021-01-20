@@ -17,18 +17,16 @@ const reviewsSchema = new mongoose.Schema({
     entry_date: String,
     category: String,
   }],
-  review_ratings: {
-    number_reviews: Number,
-    cleanliness_avg: Number,
-    communication_avg: Number,
-    checkIn_avg: Number,
-    accuracy_avg: Number,
-    lcoation_avg: Number,
-    value_avg: Number,
-  },
+  review_categories: [{
+    title: String,
+    count: Number,
+  }],
+  review_ratings: [{
+    title: String,
+    rating: Number,
+  }],
 });
 
 const Reviews = mongoose.model('Reviews', reviewsSchema);
 
 module.exports = Reviews;
-
