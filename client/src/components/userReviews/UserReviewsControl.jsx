@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import LongReviewRender from './reviewRender/LongReviewRender.jsx'
-import ShortReviewRender from './reviewRender/ShortReviewRender.jsx'
+import LongReviewRender from './reviewRender/LongReviewRender';
+import ShortReviewRender from './reviewRender/ShortReviewRender';
 
 export default function UserReviewsControl({review}) {
   const [isLongReview, setIsLongReview] = useState(false);
@@ -13,14 +13,13 @@ export default function UserReviewsControl({review}) {
   if (isLongReview) {
     return (
       <div>
-        <LongReviewRender review={review}/>
+        <LongReviewRender review={review} />
       </div>
     );
   }
   return (
     <div>
-      <ShortReviewRender review={review}/>
+      <ShortReviewRender review={review} />
     </div>
   );
 }
-
