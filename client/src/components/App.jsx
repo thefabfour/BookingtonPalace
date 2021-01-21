@@ -27,6 +27,8 @@ class App extends React.Component {
       ],
       reviewRatings: [],
         showModal: false,
+        numReviews: undefined,
+        overallRatingAvg:undefined,
     };
 
   }
@@ -39,6 +41,8 @@ class App extends React.Component {
           reviews: response.data.all_reviews,
           categories: response.data.review_categories,
           reviewRatings: response.data.review_ratings,
+          numReviews: response.data.num_reviews,
+        overallRatingAvg:response.data.overall_rating_avg,
         })
         console.log('the state is now', this.state)
       })
@@ -67,7 +71,7 @@ class App extends React.Component {
       <div className={classes.container}>
         <div className={classes.header}>
           <span className={classes.star}> &#9733;</span>
-        <span className={classes.headerText}> 4.83 (70 reviews) </span>
+        <span className={classes.headerText}> {this.state.overallRatingAvg} ({this.state.numReviews} reviews) </span>
         </div>
         <div>
           Hi from App!
