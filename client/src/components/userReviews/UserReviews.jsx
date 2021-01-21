@@ -7,7 +7,7 @@ function UserReviews({reviews}) {
   const reviewsList = itemsArr.map((review, index) => <UserReviewsControl review={review} index={index}/>);
 
   return (
-    <div className={classes.parent}>
+    <div className={classes.container}>
       {reviewsList}
     </div>
   );

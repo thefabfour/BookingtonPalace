@@ -14,13 +14,13 @@ export default function UserReviewsControl({review}) {
   }, []);
   if (isLongReview) {
     return (
-      <div className={classes.children}>
+      <div className={classes.userReview}>
         <LongReviewRender review={review} />
       </div>
     );
   }
   return (
-    <div className={classes.children}>
+    <div className={classes.userReview}>
       <ShortReviewRender review={review} />
     </div>
   );

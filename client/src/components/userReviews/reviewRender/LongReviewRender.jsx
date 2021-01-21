@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReviewHeader from './ReviewHeader';
+import classes from '../UserReviews.module.css'
 
 
 export default function LongReviewRender({review}) {
@@ -21,7 +22,7 @@ export default function LongReviewRender({review}) {
         <div>
               <ReviewHeader review={review}/>
               <div>{lengthReview}</div>
-          <button type="button" onClick={handleShowMoreClick}> {isShowMoreClicked ? 'read less' : 'read more'} </button>
+          <button className={classes.readMore} type="button" onClick={handleShowMoreClick}> {isShowMoreClicked ? 'read less' : 'read more'} </button>
         </div>
       );
     }
