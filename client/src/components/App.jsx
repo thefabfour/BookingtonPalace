@@ -8,6 +8,7 @@ import UserReviews from './userReviews/UserReviews';
 import ShowAll from './showAll/ShowAll'
 
 
+
 class App extends React.Component {
   constructor() {
     super();
@@ -64,19 +65,24 @@ class App extends React.Component {
   render() {
     return (
       <div className={classes.container}>
-        Hi from App!
-        <CategoryGraphs ratings={this.state.reviewRatings} />
-        <CategoryControl categories={this.state.categories}/>
-        <UserReviews reviews={this.state.reviews}/>
-
-        <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}>
+        <div className={classes.header}>
+          <span className={classes.star}> &#9733;</span>
+          <span className={classes.header}> 4.83 (70 reviews) </span>
+        </div>
+        <div>
+          Hi from App!
           <CategoryGraphs ratings={this.state.reviewRatings} />
           <CategoryControl categories={this.state.categories}/>
           <UserReviews reviews={this.state.reviews}/>
-        </ShowAll>
 
-        <button type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
+          <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}>
+            <CategoryGraphs ratings={this.state.reviewRatings} />
+            <CategoryControl categories={this.state.categories}/>
+            <UserReviews reviews={this.state.reviews}/>
+          </ShowAll>
 
+          <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
+        </div>
       </div>
     );
   }

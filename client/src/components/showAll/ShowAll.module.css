@@ -4,11 +4,12 @@
   z-index: 500;
   background-color: rgb(255, 255, 255);
   color: var(--polar1);
-  width: 50%;
+  width: 80%;
+
   box-shadow:rgba(0,0,0,.28);
   padding: 16px;
-  left: 25%;
-  top: 10%;
+  left: 10%;
+  top: 5%;
   box-sizing: border-box;
   border-radius: 12px;
   transition: all 0.3s ease-out;
@@ -17,7 +18,7 @@
 @media (min-width: 600px) {
   .modal {
     max-height: calc(100vh - 100px);
-    left: calc(50%-350px);
+    left: calc(50%-100px);
     box-shadow:rgba(0,0,0,.28);
 
   }
@@ -35,4 +36,19 @@
 }
 
 .modalHeader{
+}
+
+.star{
+  color: #FF385C;
+  font-size: 2.0rem;
+}
+
+.header{
+  font-size: 3.0rem;
+  font-family: "Helvetica Neue" !important;
+
+}
+
+.exitBtn{
+  font-size: 1.7rem;
 }
