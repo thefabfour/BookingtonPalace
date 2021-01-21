@@ -26,10 +26,11 @@ class App extends React.Component {
           { title: 'Great location', count: 1 }
       ],
       reviewRatings: [],
-        showModal: false,
+      showModal: false,
         numReviews: undefined,
         overallRatingAvg:undefined,
-    };
+        categorySelected: 'Great location',
+    }
 
   }
 
@@ -65,8 +66,26 @@ class App extends React.Component {
     })
   }
 
+  handleCategorySelect() {
+    let category = event.target.id;
+    console.dir(category)
+    this.setState({
+      categorySelected: category
+    })
+    this.handleClick()
+  }
+
 
   render() {
+    let reviewsInModal;
+
+    if (!this.state.categorySelected){
+      reviewsInModal= this.state.reviews
+    } else {
+      reviewsInModal= this.state.reviews.filter(review => review.category === this.state.categorySelected)
+      console.log(reviewsInModal)
+    }
+
     return (
       <div className={classes.container}>
         <div className={classes.header}>
@@ -74,15 +93,14 @@ class App extends React.Component {
         <span className={classes.headerText}> {this.state.overallRatingAvg} ({this.state.numReviews} reviews) </span>
         </div>
         <div>
-          Hi from App!
           <CategoryGraphs ratings={this.state.reviewRatings} />
-          <CategoryControl categories={this.state.categories}/>
+          <CategoryControl categories={this.state.categories} clicked={this.handleCategorySelect.bind(this)}/>
           <UserReviews reviews={this.state.reviews}/>
 
           <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}>
             <CategoryGraphs ratings={this.state.reviewRatings} />
             <CategoryControl categories={this.state.categories}/>
-            <UserReviews reviews={this.state.reviews}/>
+            <UserReviews reviews={reviewsInModal}/>
           </ShowAll>
 
           <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
