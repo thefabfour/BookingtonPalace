@@ -67,7 +67,7 @@ class App extends React.Component {
       <div className={classes.container}>
         <div className={classes.header}>
           <span className={classes.star}> &#9733;</span>
-          <span className={classes.header}> 4.83 (70 reviews) </span>
+        <span className={classes.header}> 4.83 (70 reviews) </span>
         </div>
         <div>
           Hi from App!
