@@ -2,52 +2,70 @@
 
 
 
-// import React, { useState, useEffect } from 'react';
-// import classes from '../UserReviews.module.css';
-// import moment from 'moment';
+import React, { useState, useEffect } from 'react';
+import ReviewHeader from './ReviewHeader';
+import classes from '../UserReviews.module.css';
+import moment from 'moment';
 
-// export default function ReviewRender({profilePicture, firstName, entryDate}){
+export default function ReviewRender({reviewBody, profilePicture, firstName, entryDate}){
 
-//   const handleShowMoreClick = () => {
-//   setIsShowMoreClicked(!isShowMoreClicked);
-// };
+  const [isLongReview, setIsLongReview] = useState(false);
+  useEffect(() => {
+    const reviewLength = reviewBody.split('').length;
+    if (reviewLength > 180) {
+      setIsLongReview(true);
+    }
+  }, []);
 
-//   let lengthReview;
+  const [isShowMoreClicked, setIsShowMoreClicked] = useState(false);
 
-//   if (isShowMoreClicked) {
-//     lengthReview = review.body;
-//   } else {
-//     lengthReview = review.body.slice(0,180) + "..."
-//   }
+  const handleShowMoreClick = () => {
+  setIsShowMoreClicked(!isShowMoreClicked);
+};
 
 
-//   function Header=() {
-//     return(
-//       <div>
-//        <img className={classes.userPhoto} src={profilePicture}/>
-//        <div>{firstName}</div>
-//        <div>
-//          {moment(entryDate).format("MMMM YYYY")}
-//       </div>
-//     </div>
-//     )
-//   }
+  function LongReview({lengthReview}) {
+      return (
+      <div>
+           {lengthReview}
+        <button type="button" onClick={handleShowMoreClick}> {isShowMoreClicked ? 'read less' : 'read more'} </button>
+      </div>
+      )
+  }
 
-//   function LongReview=({}) {
-//       return (
-//       <div>
-//             <ReviewHeader review={review}/>
-//             <div>{lengthReview}</div>
-//         <button type="button" onClick={handleShowMoreClick}> {isShowMoreClicked ? 'read less' : 'read more'} </button>
-//       </div>
-//       )
-//   }
+  function ShortReview ({lengthReview}){
+    return (
+      <div>
+        {lengthReview}
+      </div>
+    )
+  }
 
-//   function ShortReviewRender ({}){
-//     return (
-//       <div>
-//         <ReviewHeader review={props.review}/>
-//         <div>{props.review.body}</div>
-//       </div>
-//     )
-//   }
+    let lengthReview;
+    let reviewElem;
+
+    if (isLongReview) {
+      if (isShowMoreClicked) {
+        lengthReview = reviewBody;
+      } else {
+        lengthReview = reviewBody.slice(0,180) + "..."
+      }
+      reviewElem = <LongReview lengthReview={lengthReview} />
+
+    } else {
+      lengthReview= reviewBody;
+      reviewElem = <ShortReview lengthReview={lengthReview} />
+    }
+
+
+
+  return (
+    <div>
+      <ReviewHeader profilePicture={profilePicture} firstName={firstName} entryDate={entryDate} />
+      {reviewElem}
+    </div>
+  )
+}
+
+
+
