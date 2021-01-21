@@ -18,9 +18,10 @@
 }
 
 .container{
-  border: 1px dashed green;
+
   display: flex;
   flex-flow: row wrap;
+  justify-content:space-around;
 }
 
 .item{
@@ -29,18 +30,18 @@
 }
 
 .indivGraph{
-  border: 1px dashed blue;
+
   width: 495px;
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 .ratingTitle{
-  border:1px dashed purple;
   align-self: flex-start;
   vertical-align: center;
   width: 320px;
-  padding-right: 100px;
+
 }
 
 .ratingNum{
@@ -53,7 +54,6 @@
   padding-right: 20px;
 }
 .pushRight{
-  border:1px dashed red;
     display: flex;
   align-self: flex-end
 

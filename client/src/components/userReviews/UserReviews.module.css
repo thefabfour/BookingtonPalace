@@ -14,13 +14,6 @@
   font-size: 1.1rem;
 }
 
-.left {
-}
-
-.right {
-
-}
-
 .userPhoto {
   border-radius:50%;
   width: 56px;
@@ -29,8 +22,11 @@
 
 .container{
   /* border: 1px dashed red; */
-  display: flex;
-  flex-flow: row wrap;
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+
 }
 
 
@@ -50,11 +46,31 @@
 
 .header{
 margin-bottom:12px;
+display:flex;
+align-items:center;
 }
 
 .userReview{
 margin-bottom:40px;
+margin-right:40px;
 align-items: flex-start;
 width: 500px;
+}
+
+.textContainer{
+  color: rgb(34, 34, 34) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  margin-left: 12px !important;
+}
+
+.date{
+  color: rgb(113, 113, 113) !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
 }
 
