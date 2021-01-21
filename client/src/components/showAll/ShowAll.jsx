@@ -17,15 +17,15 @@ export default function ShowAll({show, close, children}) {
       <div className={classes.modal}
       style={{transform: show ? 'translateY(0)' : 'translateY(-100vh)',opacity: show ? '1' : '0',}}>
         <div>
-          <div className={classes.modalHeader}>
+          <div className={classes.header}>
             <BsX type="button" onClick={close} className={classes.exitBtn}/>
             <div>
               <span className={classes.star}> &#9733;</span>
-              <span className={classes.header}> 4.83 (70 reviews) </span>
+              <span className={classes.rating}> 4.83 (70 reviews) </span>
             </div>
           </div>
-          <div className={classes.modalDialog}>
-            <div className={classes.modalBody}>
+          <div className={classes.dialog}>
+            <div className={classes.body}>
               {children}
             </div>
           </div>

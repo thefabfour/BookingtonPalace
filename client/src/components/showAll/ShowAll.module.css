@@ -24,18 +24,18 @@
   }
 }
 
-.modalBody{
+.body{
   max-height: calc(100vh - 200px);
   overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
 
-.modalDialog{
+.dialog{
   overflow-y: initial
 }
 
-.modalHeader{
+.header{
 }
 
 .star{
@@ -43,7 +43,7 @@
   font-size: 2.0rem;
 }
 
-.header{
+.rating{
   font-size: 3.0rem;
   font-family: "Helvetica Neue" !important;
 
