@@ -1,16 +1,17 @@
 import React from 'react';
-import UserReviewsControl from './UserReviewsControl';
-import ReviewRender from './reviewRender/ReviewRender';
+import ReviewRender from './ReviewRender';
 import classes from './UserReviews.module.css';
 
-function UserReviews({reviews}) {
+function UserReviews({ reviews }) {
   const itemsArr = reviews.slice(1,7);
-  const reviewsList = itemsArr.map((review, index) => <ReviewRender
-  reviewBody={review.body}
-  profilePicture= {review.user_info.pictureUrl}
-  firstName = {review.user_info.firstName}
-  entryDate= {review.entry_date}
-  />);
+  const reviewsList = itemsArr.map((review) => (
+    <ReviewRender
+      reviewBody={review.body}
+      profilePicture={review.user_info.pictureUrl}
+      firstName={review.user_info.firstName}
+      entryDate={review.entry_date}
+    />
+  ));
 
   return (
     <div className={classes.container}>
@@ -20,5 +21,3 @@ function UserReviews({reviews}) {
 }
 
 export default UserReviews;
-
-
