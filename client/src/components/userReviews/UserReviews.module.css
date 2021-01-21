@@ -23,19 +23,16 @@
 
 .userPhoto {
   border-radius:50%;
-  width: 100px;
-  height: 100px;
+  width: 56px;
+  height: 56px;
 }
 
-.parent{
+.container{
+  /* border: 1px dashed red; */
   display: flex;
   flex-flow: row wrap;
 }
 
-.children{
-  align-items: flex-start;
-  width: 500px;
-}
 
 .readMore{
   background: transparent !important;
@@ -50,3 +47,14 @@
     font-weight: 600 !important;
     outline: none !important;
 }
+
+.header{
+margin-bottom:12px;
+}
+
+.userReview{
+margin-bottom:40px;
+align-items: flex-start;
+width: 500px;
+}
+

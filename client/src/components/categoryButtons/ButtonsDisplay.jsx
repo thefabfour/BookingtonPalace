@@ -5,7 +5,7 @@ import classes from './Buttons.module.css'
 
 const ButtonsDisplay = (props) => (
 
-    <div className={classes.container}>
+    <div>
       {props.categories.map((category) =>
       <button type="button"  className= {classes.btn}> {category.title}  {category.count} </button>
 
