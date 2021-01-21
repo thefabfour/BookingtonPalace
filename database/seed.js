@@ -47,20 +47,23 @@ for (let i = 0; i < 100; i += 1) {
     });
   }
 
+
+
   sampleReviews.push({
 
     listing_id: listingId,
+    num_reviews: numberReviews,
     all_reviews: allReviews,
     review_categories: reviewCategories,
     review_ratings: [
-      {title: "Number Reviews", rating: faker.random.float({min: 3, max: 5, precision: .1})},
-      {title: "Cleanliness", rating: faker.random.float({min: 3, max: 5, precision: .1})},
-      {title: "Communicatoin", rating: faker.random.float({min: 3, max: 5, precision: .1})},
-      {title: "Check-In", rating: faker.random.float({min: 3, max: 5, precision: .1})},
-      {title: "Accuracy", rating: faker.random.float({min: 3, max: 5, precision: .1})},
-      {title: "Location", rating: faker.random.float({min: 3, max: 5, precision: .1})},
-      {title: "Value", rating: faker.random.float({min: 3, max: 5, precision: .1})},
+      {title: "Cleanliness", rating: faker.random.float({min: 4, max: 5, precision: .1})},
+      {title: "Communicatoin", rating: faker.random.float({min: 4, max: 5, precision: .1})},
+      {title: "Check-In", rating: faker.random.float({min: 4, max: 5, precision: .1})},
+      {title: "Accuracy", rating: faker.random.float({min: 4, max: 5, precision: .1})},
+      {title: "Location", rating: faker.random.float({min: 4, max: 5, precision: .1})},
+      {title: "Value", rating: faker.random.float({min: 4, max: 5, precision: .1})},
     ],
+    overall_rating_avg: faker.random.float({min: 4, max: 5, precision: .01})
   });
 }
 

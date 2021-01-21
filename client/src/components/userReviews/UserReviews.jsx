@@ -13,7 +13,7 @@ function UserReviews({reviews}) {
   />);
 
   return (
-    <div className={classes.parent}>
+    <div className={classes.container}>
       {reviewsList}
     </div>
   );

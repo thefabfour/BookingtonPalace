@@ -5,8 +5,8 @@ import classes from './App.module.css'
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 import UserReviews from './userReviews/UserReviews';
-import Modal from './modal/Modal';
 import ShowAll from './showAll/ShowAll'
+
 
 
 class App extends React.Component {
@@ -27,6 +27,8 @@ class App extends React.Component {
       ],
       reviewRatings: [],
         showModal: false,
+        numReviews: undefined,
+        overallRatingAvg:undefined,
     };
 
   }
@@ -39,6 +41,8 @@ class App extends React.Component {
           reviews: response.data.all_reviews,
           categories: response.data.review_categories,
           reviewRatings: response.data.review_ratings,
+          numReviews: response.data.num_reviews,
+        overallRatingAvg:response.data.overall_rating_avg,
         })
         console.log('the state is now', this.state)
       })
@@ -65,18 +69,24 @@ class App extends React.Component {
   render() {
     return (
       <div className={classes.container}>
-        Hi from App!
-        <CategoryGraphs ratings={this.state.reviewRatings} />
-        <CategoryControl categories={this.state.categories}/>
-        <UserReviews reviews={this.state.reviews}/>
-        <Modal show={this.state.showModal} close={this.closeModal.bind(this)}>
-          <Modal.Header >
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          {/* <ShowAll reviews={this.state.reviews} categories={this.state.categories} ratings={this.state.reviewRatings}/> */}
-        </Modal>
-    <button type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
+        <div className={classes.header}>
+          <span className={classes.star}> &#9733;</span>
+        <span className={classes.headerText}> {this.state.overallRatingAvg} ({this.state.numReviews} reviews) </span>
+        </div>
+        <div>
+          Hi from App!
+          <CategoryGraphs ratings={this.state.reviewRatings} />
+          <CategoryControl categories={this.state.categories}/>
+          <UserReviews reviews={this.state.reviews}/>
 
+          <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}>
+            <CategoryGraphs ratings={this.state.reviewRatings} />
+            <CategoryControl categories={this.state.categories}/>
+            <UserReviews reviews={this.state.reviews}/>
+          </ShowAll>
+
+          <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
+        </div>
       </div>
     );
   }
