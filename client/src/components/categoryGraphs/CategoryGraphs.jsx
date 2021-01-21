@@ -7,10 +7,13 @@ function CategoryGraphs({ratings}) {
 
   return (
     <div>
+    <div className={classes.container}>
       {ratings.map( (data) => (
       <GraphRender rating={data}/>
       ))}
     </div>
+
+  </div>
 
   )
 };

@@ -13,11 +13,15 @@ function GraphRender({rating}) {
   const fill = Filler(percentage)
 
   return (
-    <div className={classes.rating}>
-       {rating.title}
-     <div className={classes.ratingBar}>
-       {fill}
-     </div>
+    <div className={classes.item}>
+      <div className={classes.rating}>
+        {rating.title}
+      <span> 4.1 </span>
+      <div className={classes.ratingBar}>
+        {fill}
+      </div>
+
+    </div>
   </div>
   )
 

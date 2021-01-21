@@ -16,3 +16,13 @@
 .rating{
   padding: 10px;
 }
+
+.container{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.item{
+  align-items: flex-start;
+  width: 500px;
+}

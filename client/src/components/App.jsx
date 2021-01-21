@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import classes from './App.module.css'
 
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
@@ -23,15 +24,7 @@ class App extends React.Component {
           { title: 'Thoughtful touches', count: 1 },
           { title: 'Great location', count: 1 }
       ],
-      reviewRatings: [
-          {title: "Number Reviews", rating: 4.4},
-          {title: "Cleanliness", rating: 4.5},
-          {title: "Communication", rating: 5},
-          {title: "Check-In", rating: 4.2},
-          {title: "Accuracy", rating: 4.7},
-          {title: "Looation", rating: 4},
-          {title: "Value", rating: 5},
-        ],
+      reviewRatings: [],
         showModal: false,
     };
 
@@ -43,6 +36,8 @@ class App extends React.Component {
         console.log(response);
         this.setState({
           reviews: response.data.all_reviews,
+          categories: response.data.review_categories,
+          reviewRatings: response.data.review_ratings,
         })
         console.log('the state is now', this.state)
       })
@@ -68,7 +63,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={classes.container}>
         Hi from App!
         <CategoryGraphs ratings={this.state.reviewRatings} />
         <CategoryControl categories={this.state.categories}/>
@@ -79,7 +74,8 @@ class App extends React.Component {
           <CategoryControl categories={this.state.categories}/>
           <UserReviews reviews={this.state.reviews}/>
         </ShowAll>
-    <button type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
+
+        <button type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
 
       </div>
     );
