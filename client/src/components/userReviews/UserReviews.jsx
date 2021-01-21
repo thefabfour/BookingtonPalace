@@ -3,7 +3,7 @@ import UserReviewsControl from './UserReviewsControl';
 import classes from './UserReviews.module.css';
 
 function UserReviews({reviews}) {
-  const itemsArr = reviews.slice(1,7);
+  const itemsArr = reviews.slice(0,6);
   const reviewsList = itemsArr.map((review, index) => <UserReviewsControl review={review} index={index}/>);
 
   return (

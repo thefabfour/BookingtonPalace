@@ -13,6 +13,7 @@
   box-sizing: border-box;
   border-radius: 12px;
   transition: all 0.3s ease-out;
+  border: 1px solid green
 }
 
 @media (min-width: 600px) {
@@ -20,6 +21,8 @@
     max-height: calc(100vh - 100px);
     left: calc(50%-100px);
     box-shadow:rgba(0,0,0,.28);
+    padding: 40px !important;
+    align-items: center !important;
 
   }
 }
@@ -29,13 +32,30 @@
   overflow-y: auto;
     display: flex;
     flex-direction: column;
+    overflow: scroll !important;
 }
 
+<<<<<<< HEAD
 .dialog{
   overflow-y: initial
 }
 
 .header{
+=======
+.modalDialog{
+
+}
+
+.modalHeader{
+  background-color: rgb(255, 255, 255) !important;
+  padding-bottom: 24px !important;
+  position: sticky !important;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  border: 1px dashed red
+
+>>>>>>> master
 }
 
 .star{
@@ -52,3 +72,22 @@
 .exitBtn{
   font-size: 1.7rem;
 }
+
+.modalContainer{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+  padding: 24px !important;
+  border: 1px solid black
+}
+
+
+.exitBar{
+  flex: 0 0 72px !important;
+  position: sticky !important;
+  text-align: left !important;
+  top: 0px !important;
+}
+

@@ -54,3 +54,8 @@
   font-family: "Helvetica Neue" !important;
 
 }
+
+.graphsInModal{
+  display: flex;
+  align-items: stretch;
+}
