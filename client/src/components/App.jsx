@@ -25,15 +25,7 @@ class App extends React.Component {
           { title: 'Thoughtful touches', count: 1 },
           { title: 'Great location', count: 1 }
       ],
-      reviewRatings: [
-          {title: "Number Reviews", rating: 4.4},
-          {title: "Cleanliness", rating: 4.5},
-          {title: "Communication", rating: 5},
-          {title: "Check-In", rating: 4.2},
-          {title: "Accuracy", rating: 4.7},
-          {title: "Looation", rating: 4},
-          {title: "Value", rating: 5},
-        ],
+      reviewRatings: [],
         showModal: false,
     };
 
@@ -45,6 +37,8 @@ class App extends React.Component {
         console.log(response);
         this.setState({
           reviews: response.data.all_reviews,
+          categories: response.data.review_categories,
+          reviewRatings: response.data.review_ratings,
         })
         console.log('the state is now', this.state)
       })
