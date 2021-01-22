@@ -17,22 +17,30 @@
   padding: 10px;
 }
 
-.container{
-
+.allGraphs{
   display: flex;
   flex-flow: row wrap;
   justify-content:space-around;
+  align-items: stretch;
+}
+
+.container{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content:space-around;
+  align-items: stretch;
+
 }
 
 .item{
   align-items: flex-start;
-  width: 500px;
 }
 
 .indivGraph{
 
   width: 495px;
   display: flex;
+  align-items:stretch;
   flex-flow: row wrap;
   justify-content: space-between;
 }
@@ -40,7 +48,6 @@
 .ratingTitle{
   align-self: flex-start;
   vertical-align: center;
-  width: 320px;
 
 }
 

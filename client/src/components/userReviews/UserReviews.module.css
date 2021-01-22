@@ -21,11 +21,11 @@
 }
 
 .container{
-  /* border: 1px dashed red; */
   display: flex !important;
   align-items: stretch !important;
   justify-content: flex-start !important;
   flex-wrap: wrap !important;
+  width: 100%;
 
 }
 
