@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import classes from './UserReviews.module.css';
 
-const ReviewsHeader = ({profilePicture, firstName, entryDate}) => (
+export default function ReviewsHeader = ({profilePicture, firstName, entryDate}) => (
   <div className={classes.header}>
     <img className={classes.userPhoto} alt="" src={`${profilePicture}?dummy=8484744`} />
     <div className={classes.textContainer}>
@@ -14,4 +14,3 @@ const ReviewsHeader = ({profilePicture, firstName, entryDate}) => (
   </div>
 );
 
-export default ReviewsHeader;

@@ -2,7 +2,7 @@ import React from 'react';
 import ReviewRender from './ReviewRender';
 import classes from './UserReviews.module.css';
 
-function UserReviews({ reviews }) {
+export default function UserReviews({ reviews }) {
   const itemsArr = reviews.slice(1,7);
   const reviewsList = itemsArr.map((review) => (
     <ReviewRender
@@ -20,4 +20,3 @@ function UserReviews({ reviews }) {
   );
 }
 
-export default UserReviews;
