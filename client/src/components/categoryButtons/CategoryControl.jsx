@@ -4,7 +4,7 @@ import classes from './Buttons.module.css';
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 
-export default function categoryControl({ categories }) {
+export default function categoryControl({ categories, clicked }) {
   const [isLongList, setIsLongList] = useState(false);
   useEffect(() => {
     if (categories.length >= 5) {
@@ -30,7 +30,7 @@ export default function categoryControl({ categories }) {
     }
     return (
       <div className={classes.container}>
-        <ButtonsDisplay  categories={lengthList} />
+        <ButtonsDisplay  categories={lengthList} clicked={clicked}/>
         <button className={classes.showMore} type="button" onClick={handleShowMoreClick}> {isShowMoreClicked ? 'Show fewer ' : 'Show more'}
           <IoIosArrowDown style={{transform: !isShowMoreClicked ? 'translateY(0)' : 'translateY(-100vh)'}}/>
           <IoIosArrowUp  style={{transform: isShowMoreClicked ? 'translateY(0)' : 'translateY(-100vh)'}}/>
