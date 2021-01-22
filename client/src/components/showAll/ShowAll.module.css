@@ -13,7 +13,6 @@
   box-sizing: border-box;
   border-radius: 12px;
   transition: all 0.3s ease-out;
-  border: 1px solid green
 }
 
 @media (min-width: 600px) {
@@ -27,7 +26,7 @@
   }
 }
 
-.body{
+.modalBody{
   max-height: calc(100vh - 200px);
   overflow-y: auto;
     display: flex;
@@ -35,14 +34,10 @@
     overflow: scroll !important;
 }
 
-<<<<<<< HEAD
-.dialog{
-  overflow-y: initial
-}
-
-.header{
-=======
-.modalDialog{
+.something{
+  display: flex;
+  flex-direction: row;
+  overflow: initial;
 
 }
 
@@ -50,12 +45,17 @@
   background-color: rgb(255, 255, 255) !important;
   padding-bottom: 24px !important;
   position: sticky !important;
-  align-items: flex-start;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
-  border: 1px dashed red
+  font-size: 32px !important;
+  line-height: 36px !important;
+  color: rgb(34, 34, 34) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+  width: 100%
 
->>>>>>> master
 }
 
 .star{
@@ -90,4 +90,92 @@
   text-align: left !important;
   top: 0px !important;
 }
+
+.searchBar{
+  width: 100% !important;
+  border: none !important;
+  outline: none !important;
+  margin: 0px 8px 0px 0px !important;
+  min-height: 1px !important;
+  color: rgb(34, 34, 34) !important;
+  background-color: transparent !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+  appearance: none !important;
+  flex: 1 1 0% !important;
+  padding: 0px !important;
+  text-overflow: ellipsis !important;
+  width: 1000px;
+
+}
+
+.searchBarContainer{
+    min-height: 1px !important;
+    position: relative !important;
+    width: 100% !important;
+    float: left !important;
+    position: relative !important;
+    cursor: text !important;
+    display: flex !important;
+    height: unset !important;
+    width: 100% !important;
+    margin: 0px !important;
+    border: none !important;
+    color: rgb(34, 34, 34) !important;
+    background-color: rgb(247, 247, 247) !important;
+    align-items: center !important;
+    padding: 12px 12px 12px 16px !important;
+    border-radius: 100px !important;
+    box-shadow: rgb(176, 176, 176) 0px 0px 0px 1px inset
+}
+
+.graphsAndButtonContainer{
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  width: 40% !important;
+  float: left !important;
+}
+
+.graphsContainer{
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  width: 100% !important;
+  float: left !important;
+}
+
+.buttonsContainer{
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  width: 100% !important;
+  float: left !important;
+}
+
+.reviewsContainer{
+  margin-left: 20px;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  min-height: 1px !important;
+  position: relative !important;
+  width: 60% !important;
+  float: right !important;
+  overflow-y: scroll;
+  scroll-behavior:smooth;
+
+}
+
+.starAndText{
+  display: flex;
+  flex-direction: row;
+  width:90%;
+
+}
+
 

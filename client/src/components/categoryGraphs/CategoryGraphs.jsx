@@ -6,14 +6,14 @@ import GraphRender from './GraphRender'
 function CategoryGraphs({ratings}) {
 
   return (
-    <div>
-    <div className={classes.container}>
+
+    <div className={classes.allGraphs}>
       {ratings.map( (data) => (
       <GraphRender rating={data}/>
       ))}
     </div>
 
-  </div>
+
 
   )
 };
