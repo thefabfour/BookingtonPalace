@@ -99,7 +99,7 @@ class App extends React.Component {
 
           <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}>
             <CategoryGraphs ratings={this.state.reviewRatings} />
-            <CategoryControl categories={this.state.categories}/>
+            <CategoryControl categories={this.state.categories} clicked={this.handleCategorySelect.bind(this)}/>
             <UserReviews reviews={reviewsInModal}/>
           </ShowAll>
 
