@@ -1,18 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import classes from './Buttons.module.css'
+import classes from './Buttons.module.css';
 
-const ButtonsDisplay = (props) => (
-
+export default function ButtonsDisplay({ categories, clicked }) {
+  return (
     <div>
-      {props.categories.map((category) =>
-      <button type="button"  className= {classes.btn} id={category.title} onClick={props.clicked}> {category.title}  {category.count} </button>
-
-      )}
+      {categories.map((category) => (
+        <button type="button" className={classes.btn} id={category.title} onClick={clicked}>
+          {category.title} {category.count}
+        </button>
+      ))}
     </div>
+  );
+}
 
-);
-
-
-export default ButtonsDisplay;
+ButtonsDisplay.propTypes = {
+  categories: PropTypes.shape({
+    title: PropTypes.string,
+    count: PropTypes.number,
+    map: PropTypes.func,
+  }).isRequired,
+  clicked: PropTypes.func.isRequired,
+};

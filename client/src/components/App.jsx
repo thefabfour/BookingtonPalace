@@ -7,45 +7,40 @@ import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 import UserReviews from './userReviews/UserReviews';
 import ShowAll from './showAll/ShowAll'
 
-
-
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       reviews: [],
       categories: [
-          { title: 'Central location', count: 1 },
-          { title: 'Responsive host', count: 2 },
-          { title: 'Helpful host', count: 2 },
-          { title: 'Great restaurants', count: 2 },
-          { title: 'Easy check-in', count: 4 },
-          { title: 'Friendly host', count: 2 },
-          { title: 'Great views', count: 1 },
-          { title: 'Thoughtful touches', count: 1 },
-          { title: 'Great location', count: 1 }
+        { title: 'Central location', count: 1 },
+        { title: 'Responsive host', count: 2 },
+        { title: 'Helpful host', count: 2 },
+        { title: 'Great restaurants', count: 2 },
+        { title: 'Easy check-in', count: 4 },
+        { title: 'Friendly host', count: 2 },
+        { title: 'Great views', count: 1 },
+        { title: 'Thoughtful touches', count: 1 },
+        { title: 'Great location', count: 1 },
       ],
       reviewRatings: [],
       showModal: false,
-        numReviews: undefined,
-        overallRatingAvg:undefined,
-        categorySelected: 'Great location',
-    }
-
+      numReviews: undefined,
+      overallRatingAvg: undefined,
+      categorySelected: 'Great location',
+    };
   }
 
   componentDidMount() {
     axios.get('/api/listing/reviews')
       .then((response) => {
-        console.log(response);
         this.setState({
           reviews: response.data.all_reviews,
           categories: response.data.review_categories,
           reviewRatings: response.data.review_ratings,
           numReviews: response.data.num_reviews,
-        overallRatingAvg:response.data.overall_rating_avg,
-        })
-        console.log('the state is now', this.state)
+          overallRatingAvg: response.data.overall_rating_avg,
+        });
       })
       .catch((error) => {
         if (!error.status) {
@@ -56,25 +51,24 @@ class App extends React.Component {
 
   handleClick() {
     this.setState({
-      showModal: true
-    })
+      showModal: true,
+    });
+  }
+
+  handleCategorySelect() {
+    const category = event.target.id;
+    console.dir(category);
+    this.setState({
+      categorySelected: category,
+    });
+    this.handleClick();
   }
 
   closeModal() {
     this.setState({
-      showModal: false
-    })
+      showModal: false,
+    });
   }
-
-  handleCategorySelect() {
-    let category = event.target.id;
-    console.dir(category)
-    this.setState({
-      categorySelected: category
-    })
-    this.handleClick()
-  }
-
 
   render() {
     let reviewsInModal;
