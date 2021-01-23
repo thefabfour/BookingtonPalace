@@ -6,6 +6,6 @@ import CategoryGraphs from '../client/src/components/categoryGraphs/CategoryGrap
 describe('CategoryGraphs', () => {
   it('renders the CategoryGraphs component', () => {
     render(<CategoryGraphs ratings={[]}/>);
-    screen.debug();
+    // screen.debug();
   });
 });

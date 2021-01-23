@@ -5,10 +5,12 @@ import classes from './Buttons.module.css';
 
 export default function ButtonsDisplay({ categories, clicked }) {
   return (
-    <div>
-      {categories.map((category) => (
-        <button type="button" className={classes.btn} id={category.title} onClick={clicked}>
-          {category.title} {category.count}
+    <div id="ButtonList">
+      {categories.map((category, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <button type="button" key={index} className={classes.btn} id={category.title} onClick={clicked}>
+          {category.title}
+          {category.count}
         </button>
       ))}
     </div>
@@ -16,10 +18,5 @@ export default function ButtonsDisplay({ categories, clicked }) {
 }
 
 ButtonsDisplay.propTypes = {
-  categories: PropTypes.shape({
-    title: PropTypes.string,
-    count: PropTypes.number,
-    map: PropTypes.func,
-  }).isRequired,
-  clicked: PropTypes.func.isRequired,
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

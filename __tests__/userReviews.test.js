@@ -8,6 +8,6 @@ import UserReviews from '../client/src/components/userReviews/UserReviews'
 describe('UserReviews', () => {
   it('renders the UserReviews component', () => {
     render(<UserReviews reviews={[]}/>);
-    screen.debug();
+    // screen.debug();
   });
 });

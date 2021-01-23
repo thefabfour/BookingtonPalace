@@ -19,6 +19,6 @@ describe('ShowAll', () => {
       <UserReviews reviews={[]}/>
     </ShowAll>
     );
-    screen.debug();
+    // screen.debug();
   });
 });

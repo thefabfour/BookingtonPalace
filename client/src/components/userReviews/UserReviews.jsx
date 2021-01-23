@@ -5,8 +5,10 @@ import classes from './UserReviews.module.css';
 
 export default function UserReviews({ reviews }) {
   const itemsArr = reviews.slice(0, 6);
-  const reviewsList = itemsArr.map((review) => (
+  const reviewsList = itemsArr.map((review, index) => (
     <ReviewRender
+      // eslint-disable-next-line react/no-array-index-key
+      key={index}
       reviewBody={review.body}
       profilePicture={review.user_info.pictureUrl}
       firstName={review.user_info.firstName}
@@ -22,11 +24,5 @@ export default function UserReviews({ reviews }) {
 }
 
 UserReviews.propTypes = {
-  reviews: PropTypes.shape({
-    slice: PropTypes.func.isRequired,
-    profilePicture: PropTypes.string.isRequired,
-    reviewBody: PropTypes.string.isRequired,
-    firstName: PropTypes.string.isRequired,
-    entryDate: PropTypes.string.isRequired,
-  }).isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

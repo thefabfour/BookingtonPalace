@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
+    "test-coverage": "jest  --collect-coverage",
     "start": "nodemon server/index.js",
     "build": "webpack --watch",
     "seed": "node database/seed.js"

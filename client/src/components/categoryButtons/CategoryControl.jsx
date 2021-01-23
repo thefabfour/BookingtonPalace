@@ -46,8 +46,6 @@ export default function categoryControl({ categories, clicked }) {
 }
 
 categoryControl.propTypes = {
-  rating: PropTypes.shape({
-    title: PropTypes.string,
-    rating: PropTypes.number,
-  }).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  clicked: PropTypes.func.isRequired,
 };
