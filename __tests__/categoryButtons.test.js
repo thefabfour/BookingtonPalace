@@ -1,9 +1,3 @@
-// make sure buttons render
-// make sure buttons have correct information (title/count)
-// make sure buttons handle click events
-// make sure buttons render
-// make sure buttons have correct information (title/count)
-// make sure buttons handle click events
 
 import React from 'react';
 import { render, screen } from '@testing-library/react';

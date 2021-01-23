@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './ShowAll.module.css'
+import classes from './ShowAll.module.css';
 
 export default function ShowAllHeader() {
   return (

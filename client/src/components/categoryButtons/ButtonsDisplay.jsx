@@ -8,8 +8,7 @@ export default function ButtonsDisplay({ categories, clicked }) {
     <div>
       {categories.map((category) => (
         <button type="button" className={classes.btn} id={category.title} onClick={clicked}>
-          {category.title}
-          {category.count}
+          {category.title} {category.count}
         </button>
       ))}
     </div>
