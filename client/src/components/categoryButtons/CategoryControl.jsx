@@ -28,7 +28,7 @@ export default function categoryControl({ categories, clicked }) {
     }
     return (
       <div className={classes.container}>
-        <ButtonsDisplay categories={lengthList} clicked={clicked} />
+        <ButtonsDisplay id="showMore" categories={lengthList} clicked={clicked} />
         <button className={classes.showMore} type="button" onClick={handleShowMoreClick}>
           {isShowMoreClicked ? 'Show fewer ' : 'Show more'}
           <IoIosArrowDown style={{ transform: !isShowMoreClicked ? 'translateY(0)' : 'translateY(-100vh)' }} />
