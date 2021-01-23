@@ -18,7 +18,6 @@ describe('ShowAll', () => {
       <CategoryControl categories={[]} clicked={()=>{}}/>
       <UserReviews reviews={[]}/>
     </ShowAll>
-
     );
     screen.debug();
   });

@@ -1,15 +1,11 @@
-// make sure buttons render
-// make sure buttons have correct information (title/count)
-// make sure buttons handle click events
-// make sure buttons render
-// make sure buttons have correct information (title/count)
-// make sure buttons handle click events
 
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect'
 import CategoryControl from '../client/src/components/categoryButtons/CategoryControl'
 import sampleData from '../__testData__/sampleData'
+
 
 //basic render test, no data
 describe('CategoryControl', () => {
@@ -26,3 +22,15 @@ describe('CategoryControl', () => {
     screen.debug();
   });
 });
+
+test('click', () => {
+  render(
+    <div>
+      <label htmlFor="checkbox">Check</label>
+      <input id="checkbox" type="checkbox" />
+    </div>
+  )
+
+  userEvent.click(screen.getByText('Check'))
+  expect(screen.getByLabelText('Check')).toBeChecked()
+})
