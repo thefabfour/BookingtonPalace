@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import ReviewHeader from './ReviewHeader';
 import classes from './UserReviews.module.css';
 
-export default function ReviewRender({ reviewBody, profilePicture, firstName, entryDate }) {
+export default function ReviewRender({
+  reviewBody, profilePicture, firstName, entryDate,
+}) {
   const [isLongReview, setIsLongReview] = useState(false);
   useEffect(() => {
     const reviewLength = reviewBody.split('').length;
@@ -21,10 +23,12 @@ export default function ReviewRender({ reviewBody, profilePicture, firstName, en
   function LongReview({ lengthReview }) {
     return (
       <div>
-           {lengthReview}
-        <button className={classes.readMore} type="button" onClick={handleShowMoreClick}> {isShowMoreClicked ? 'read less' : 'read more'} </button>
+        {lengthReview}
+        <button className={classes.readMore} type="button" onClick={handleShowMoreClick}>
+          {isShowMoreClicked ? 'read less' : 'read more'}
+        </button>
       </div>
-    )
+    );
   }
 
   function ShortReview({ lengthReview }) {
@@ -42,7 +46,7 @@ export default function ReviewRender({ reviewBody, profilePicture, firstName, en
     if (isShowMoreClicked) {
       lengthReview = reviewBody;
     } else {
-      lengthReview = reviewBody.slice(0,180) + "..."
+      lengthReview = `${reviewBody.slice(0, 180)}...`;
     }
     reviewElem = <LongReview lengthReview={lengthReview} />;
   } else {
@@ -59,8 +63,8 @@ export default function ReviewRender({ reviewBody, profilePicture, firstName, en
 }
 
 ReviewRender.propTypes = {
-  profilePicture: PropTypes.string,
-  reviewBody: PropTypes.string,
-  firstName: PropTypes.string,
-  entryDate: PropTypes.string,
-}
+  profilePicture: PropTypes.string.isRequired,
+  reviewBody: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  entryDate: PropTypes.string.isRequired,
+};

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ButtonsDisplay from './ButtonsDisplay.jsx'
+import PropTypes from 'prop-types';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import ButtonsDisplay from './ButtonsDisplay';
 import classes from './Buttons.module.css';
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
 
 export default function categoryControl({ categories, clicked }) {
   const [isLongList, setIsLongList] = useState(false);
@@ -23,17 +23,16 @@ export default function categoryControl({ categories, clicked }) {
 
     if (isShowMoreClicked) {
       lengthList = categories;
-      const arrow = <IoIosArrowDown/>
     } else {
       lengthList = categories.slice(0, 4);
-      const arrow = <IoIosArrowUp/>
     }
     return (
       <div className={classes.container}>
-        <ButtonsDisplay  categories={lengthList} clicked={clicked}/>
-        <button className={classes.showMore} type="button" onClick={handleShowMoreClick}> {isShowMoreClicked ? 'Show fewer ' : 'Show more'}
-          <IoIosArrowDown style={{transform: !isShowMoreClicked ? 'translateY(0)' : 'translateY(-100vh)'}}/>
-          <IoIosArrowUp  style={{transform: isShowMoreClicked ? 'translateY(0)' : 'translateY(-100vh)'}}/>
+        <ButtonsDisplay categories={lengthList} clicked={clicked} />
+        <button className={classes.showMore} type="button" onClick={handleShowMoreClick}>
+          {isShowMoreClicked ? 'Show fewer ' : 'Show more'}
+          <IoIosArrowDown style={{ transform: !isShowMoreClicked ? 'translateY(0)' : 'translateY(-100vh)' }} />
+          <IoIosArrowUp style={{ transform: isShowMoreClicked ? 'translateY(0)' : 'translateY(-100vh)' }} />
 
         </button>
       </div>
@@ -45,3 +44,10 @@ export default function categoryControl({ categories, clicked }) {
     </div>
   );
 }
+
+categoryControl.propTypes = {
+  rating: PropTypes.shape({
+    title: PropTypes.string,
+    rating: PropTypes.number,
+  }).isRequired,
+};

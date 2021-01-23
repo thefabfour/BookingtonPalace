@@ -10,7 +10,7 @@ export default function ShowAllHeader() {
       </div>
       <div className={classes.searchBarContainer}>
         <form className={classes.searchBar}>
-          <input className={classes.searchBar} placeholder="Search reviews"></input>
+          <input className={classes.searchBar} placeholder="Search reviews" />
         </form>
       </div>
     </div>

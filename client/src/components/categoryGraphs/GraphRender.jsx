@@ -1,16 +1,15 @@
 import React from 'react';
-import classes from './Graph.module.css'
+import PropTypes from 'prop-types';
+import classes from './Graph.module.css';
 
+export default function GraphRender({ rating }) {
+  const percentage = (rating.rating / 5) * 100;
 
-function GraphRender({rating}) {
-
-  const percentage = (rating.rating/5)*100;
-
-  function Filler(precentage){
-    return <div className={classes.filler} style={{width:`${precentage}%`}}/>
+  function Filler(precentage) {
+    return <div className={classes.filler} style={{ width: `${precentage}%` }} />;
   }
 
-  const fill = Filler(percentage)
+  const fill = Filler(percentage);
 
   return (
     <div className={classes.container}>
@@ -19,7 +18,7 @@ function GraphRender({rating}) {
         <div className={classes.pushRight}>
           <div className={classes.ratingBar}>
             <div className={classes.baseBar}>
-            {fill}
+              {fill}
             </div>
           </div>
           <span className={classes.ratingNum}> 4.1 </span>
@@ -27,8 +26,12 @@ function GraphRender({rating}) {
       </div>
 
     </div>
-  )
+  );
+}
 
+GraphRender.propTypes = {
+  rating: PropTypes.shape({
+    title: PropTypes.string,
+    rating: PropTypes.number,
+  }).isRequired,
 };
-
-export default GraphRender;
