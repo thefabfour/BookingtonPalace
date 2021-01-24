@@ -13,6 +13,7 @@
   box-sizing: border-box;
   border-radius: 12px;
   transition: all 0.3s ease-out;
+  overflow-y: auto !important;
 }
 
 @media (min-width: 600px) {
@@ -37,7 +38,7 @@
 .something{
   display: flex;
   flex-direction: row;
-  overflow: initial;
+  overflow: auto;
 
 }
 
@@ -166,8 +167,6 @@
   position: relative !important;
   width: 60% !important;
   float: right !important;
-  overflow-y: scroll;
-  scroll-behavior:smooth;
 
 }
 
