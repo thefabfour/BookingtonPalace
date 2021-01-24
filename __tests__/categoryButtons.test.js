@@ -28,12 +28,13 @@ describe('categoryButtons', () => {
   // screen.debug();
   });
 
-  test('handles clicks on show more/show less buttons', () => {
+  test('show change from show more to show fewer', () => {
     const handleClick =jest.fn()
 
     render(<CategoryControl categories={sampleData.review_categories} clicked={handleClick}/>);
-    fireEvent.click(screen.getByTestId("showMore"));
-    expect(handleClick).toHaveBeenCalledTimes(1)
+    const buttonToClick = screen.getByTestId("showMore")
+    fireEvent.click(buttonToClick);
+    expect(buttonToClick).toHaveTextContent('Show fewer')
   // screen.debug();
   });
 
