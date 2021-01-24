@@ -4,6 +4,7 @@ import { render, screen, fireEvent, queryByAttribute } from '@testing-library/re
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect'
 import CategoryControl from '../client/src/components/categoryButtons/CategoryControl'
+import ButtonsDisplay from '../client/src/components/categoryButtons/ButtonsDisplay'
 import sampleData from '../__testData__/sampleData'
 
 
@@ -15,9 +16,6 @@ describe('categoryButtons', () => {
     render(<CategoryControl categories={[]} clicked={()=>{}}/>);
     // screen.debug();
   });
-
-
-
 
   test('handles clicks on category specific buttons', () => {
     const handleClick =jest.fn()
@@ -38,7 +36,24 @@ describe('categoryButtons', () => {
   // screen.debug();
   });
 
-});
+  test('renders the specific categorgy buttons properly', () => {
+    const handleClick =jest.fn()
+    render(<ButtonsDisplay categories={sampleData.review_categories} clicked={handleClick}/>);
+    const buttonToClick = screen.getByTestId("Central location")
+    expect(buttonToClick).toHaveTextContent("Central location")
+    // screen.debug();
+  });
 
+  test('buttons firing events', () => {
+    const handleClick =jest.fn()
+
+    render(<ButtonsDisplay categories={sampleData.review_categories} clicked={handleClick}/>);
+    const buttonToClick = screen.getByTestId("Central location")
+    fireEvent.click(buttonToClick);
+    expect(handleClick).toHaveBeenCalledTimes(1)
+  // screen.debug();
+  });
+
+});
 
 

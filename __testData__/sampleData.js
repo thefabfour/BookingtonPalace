@@ -9,7 +9,7 @@ const sampleData = {
         lastName: 'Simonis',
         email: 'Ignacio_Shanahan62@gmail.com',
         pictureUrl: 'https://source.unsplash.com/collection/888146/300x300?dummy=8484740',
-        password: 'avByQK_GCm2bKTa'
+        password: 'avByQK_GCm2bKTa',
       },
       body: 'Eos mollitia aut sed nemo ipsum animi. Soluta vitae explicabo voluptatem vitae ut. Aut quam delectus voluptatem provident est et dolorem ipsam ipsum. Ut adipisci at ut sequi.',
       entry_date: "2020-03-13T09:24:47.186Z",

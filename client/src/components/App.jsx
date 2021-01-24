@@ -94,7 +94,7 @@ class App extends React.Component {
           <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}>
             <CategoryGraphs ratings={this.state.reviewRatings} />
             <CategoryControl categories={this.state.categories} clicked={this.handleCategorySelect.bind(this)}/>
-            <UserReviews reviews={reviewsInModal}/>
+            <UserReviews reviews={reviewsInModal} dummyFunc={()=>{}}/>
           </ShowAll>
 
           <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>

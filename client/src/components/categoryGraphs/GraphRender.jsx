@@ -12,7 +12,7 @@ export default function GraphRender({ rating }) {
   const fill = Filler(percentage);
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} data-testid={rating.title}>
       <div className={classes.indivGraph}>
         <div className={classes.ratingTitle}>{rating.title}</div>
         <div className={classes.pushRight}>
@@ -21,7 +21,9 @@ export default function GraphRender({ rating }) {
               {fill}
             </div>
           </div>
-          <span className={classes.ratingNum}> 4.1 </span>
+          <span className={classes.ratingNum}>
+            {rating.rating}
+          </span>
         </div>
       </div>
 

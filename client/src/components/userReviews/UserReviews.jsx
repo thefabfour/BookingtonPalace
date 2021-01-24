@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReviewRender from './ReviewRender';
 import classes from './UserReviews.module.css';
 
-export default function UserReviews({ reviews }) {
+export default function UserReviews({ reviews, dummyFunc }) {
   const itemsArr = reviews.slice(0, 6);
   const reviewsList = itemsArr.map((review, index) => (
     <ReviewRender
@@ -13,6 +13,8 @@ export default function UserReviews({ reviews }) {
       profilePicture={review.user_info.pictureUrl}
       firstName={review.user_info.firstName}
       entryDate={review.entry_date}
+      userId={review.user_info.user_id}
+      dummyFunc= {dummyFunc}
     />
   ));
 
