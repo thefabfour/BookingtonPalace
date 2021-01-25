@@ -5,7 +5,7 @@ import classes from './App.module.css'
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 import UserReviews from './userReviews/UserReviews';
-import ShowAll from './showAll/ShowAll'
+import ShowAll from './showAll/ShowAll';
 import ListingHeader from './ListingHeader';
 
 class App extends React.Component {
