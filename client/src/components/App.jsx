@@ -5,7 +5,7 @@ import classes from './App.module.css'
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 import UserReviews from './userReviews/UserReviews';
-import ShowAll from './showAll/ShowAll';
+import ShowAll from './showAll/ShowAll'
 import ListingHeader from './ListingHeader';
 
 class App extends React.Component {
@@ -116,3 +116,37 @@ class App extends React.Component {
 }
 
 export default App;
+
+// export default function App() {
+//   const [reviews, setReviews] = useState([]);
+//   const [categories, setCategories = useState([
+//     { title: 'Central location', count: 1 },
+//     { title: 'Responsive host', count: 2 },
+//     { title: 'Helpful host', count: 2 },
+//     { title: 'Great restaurants', count: 2 },
+//     { title: 'Easy check-in', count: 4 },
+//     { title: 'Friendly host', count: 2 },
+//     { title: 'Great views', count: 1 },
+//     { title: 'Thoughtful touches', count: 1 },
+//     { title: 'Great location', count: 1 },
+//   ]);
+//   const [reviewRatings, setReviewRatings] = useState([]);
+//   const [showModal, setShowModal] = useState(false);
+//   const [numReviews, setNumReviews] = useState(undefined);
+//   const [overallRatingAvg, setOverallRatingAvg] = useState(undefined);
+//   const [categorySelected, setCategorySelected] = useState({
+//     title: undefined, count: undefined,
+//   });
+
+//   useEffect(() => {
+//     if (categories.length >= 5) {
+//       setIsLongList(true);
+//     }
+//   }, []);
+
+
+
+//   return(
+
+//   )
+// }
