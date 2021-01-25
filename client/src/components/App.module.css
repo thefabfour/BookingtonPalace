@@ -45,12 +45,13 @@
 
 .star{
   color: #FF385C;
-  font-size: 1.4rem;
+  font-size: 2.0rem;
 }
 
 .headerText{
   padding-top:20px;
-  font-size: 1.4rem;
+  font-size: 2.0rem;
+  font-family: 300;
   font-family: "Helvetica Neue" !important;
 
 }

@@ -5,8 +5,8 @@ import classes from './App.module.css'
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 import UserReviews from './userReviews/UserReviews';
-import ShowAll from './showAll/ShowAll'
-import ListingHeader from './ListingHeader'
+import ShowAll from './showAll/ShowAll';
+import ListingHeader from './ListingHeader';
 
 class App extends React.Component {
   constructor() {
@@ -55,6 +55,7 @@ class App extends React.Component {
   handleClick() {
     this.setState({
       showModal: true,
+
     });
   }
 
@@ -70,6 +71,9 @@ class App extends React.Component {
   closeModal() {
     this.setState({
       showModal: false,
+      categorySelected: {
+        title: undefined, count: undefined,
+      },
     });
   }
 

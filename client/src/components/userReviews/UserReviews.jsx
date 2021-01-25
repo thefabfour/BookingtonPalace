@@ -14,7 +14,7 @@ export default function UserReviews({ reviews, dummyFunc }) {
       firstName={review.user_info.firstName}
       entryDate={review.entry_date}
       userId={review.user_info.user_id}
-      dummyFunc= {dummyFunc}
+      dummyFunc={dummyFunc}
     />
   ));
 

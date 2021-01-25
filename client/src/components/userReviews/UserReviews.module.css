@@ -23,7 +23,7 @@
 .container{
   display: flex !important;
   align-items: stretch !important;
-  justify-content: flex-start !important;
+  justify-content: space-between !important;
   flex-wrap: wrap !important;
   width: 100%;
 

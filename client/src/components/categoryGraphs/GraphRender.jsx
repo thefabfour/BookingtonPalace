@@ -15,7 +15,7 @@ export default function GraphRender({ rating, isForModal }) {
   let ratingDisplayed;
 
   if (rating.rating === 4 || rating.rating === 5) {
-    ratingDisplayed = JSON.stringify(rating.rating) + '.0'
+    ratingDisplayed = `${JSON.stringify(rating.rating)}.0`;
   } else {
     ratingDisplayed = JSON.stringify(rating.rating);
   }
@@ -51,4 +51,5 @@ GraphRender.propTypes = {
     title: PropTypes.string,
     rating: PropTypes.number,
   }).isRequired,
+  isForModal: PropTypes.bool.isRequired,
 };
