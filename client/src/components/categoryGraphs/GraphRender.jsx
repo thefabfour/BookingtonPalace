@@ -2,8 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classes from './Graph.module.css';
 
-export default function GraphRender({ rating }) {
+export default function GraphRender({ rating, isForModal }) {
+  let classForGraphs;
+
+  if (isForModal) {
+    classForGraphs = classes.containerModal;
+  } else {
+    classForGraphs = classes.containerFull;
+  }
+
   const percentage = (rating.rating / 5) * 100;
+  let ratingDisplayed;
+
+  if (rating.rating === 4 || rating.rating === 5) {
+    ratingDisplayed = JSON.stringify(rating.rating) + '.0'
+  } else {
+    ratingDisplayed = JSON.stringify(rating.rating);
+  }
 
   function Filler(precentage) {
     return <div className={classes.filler} style={{ width: `${precentage}%` }} />;
@@ -12,7 +27,7 @@ export default function GraphRender({ rating }) {
   const fill = Filler(percentage);
 
   return (
-    <div className={classes.container} data-testid={rating.title}>
+    <div className={classForGraphs} data-testid={rating.title}>
       <div className={classes.indivGraph}>
         <div className={classes.ratingTitle}>{rating.title}</div>
         <div className={classes.pushRight}>
@@ -22,7 +37,7 @@ export default function GraphRender({ rating }) {
             </div>
           </div>
           <span className={classes.ratingNum}>
-            {rating.rating}
+            {ratingDisplayed}
           </span>
         </div>
       </div>

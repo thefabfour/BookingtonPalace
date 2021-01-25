@@ -56,14 +56,14 @@ for (let i = 0; i < 100; i += 1) {
     all_reviews: allReviews,
     review_categories: reviewCategories,
     review_ratings: [
-      {title: "Cleanliness", rating: faker.random.float({min: 4, max: 5, precision: .1})},
-      {title: "Communicatoin", rating: faker.random.float({min: 4, max: 5, precision: .1})},
-      {title: "Check-In", rating: faker.random.float({min: 4, max: 5, precision: .1})},
-      {title: "Accuracy", rating: faker.random.float({min: 4, max: 5, precision: .1})},
-      {title: "Location", rating: faker.random.float({min: 4, max: 5, precision: .1})},
-      {title: "Value", rating: faker.random.float({min: 4, max: 5, precision: .1})},
+      {title: "Cleanliness", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
+      {title: "Communication", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
+      {title: "Check-In", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
+      {title: "Accuracy", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
+      {title: "Location", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
+      {title: "Value", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
     ],
-    overall_rating_avg: faker.random.float({min: 4, max: 5, precision: .01})
+    overall_rating_avg: faker.random.float({min: 4.00, max: 5.00, precision: .01})
   });
 }
 
