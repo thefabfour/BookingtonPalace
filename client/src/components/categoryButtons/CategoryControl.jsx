@@ -28,8 +28,8 @@ export default function categoryControl({ categories, clicked }) {
     }
     return (
       <div className={classes.container}>
-        <ButtonsDisplay categories={lengthList} clicked={clicked} />
-        <button className={classes.showMore} type="button" onClick={handleShowMoreClick}>
+        <ButtonsDisplay id="showMore" categories={lengthList} clicked={clicked}  />
+        <button className={classes.showMore} type="button" onClick={handleShowMoreClick} data-testid="showMore">
           {isShowMoreClicked ? 'Show fewer ' : 'Show more'}
           <IoIosArrowDown style={{ transform: !isShowMoreClicked ? 'translateY(0)' : 'translateY(-100vh)' }} />
           <IoIosArrowUp style={{ transform: isShowMoreClicked ? 'translateY(0)' : 'translateY(-100vh)' }} />
@@ -46,8 +46,6 @@ export default function categoryControl({ categories, clicked }) {
 }
 
 categoryControl.propTypes = {
-  rating: PropTypes.shape({
-    title: PropTypes.string,
-    rating: PropTypes.number,
-  }).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  clicked: PropTypes.func.isRequired,
 };

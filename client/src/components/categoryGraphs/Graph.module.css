@@ -21,14 +21,24 @@
   display: flex;
   flex-flow: row wrap;
   justify-content:space-around;
-  align-items: stretch;
+  align-items: flex start;
 }
 
-.container{
-  display: flex;
-  flex-flow: column wrap;
-  justify-content:space-around;
-  align-items: stretch;
+.containerFull{
+  margin-bottom: 16px !important;
+  width: 41.6667% !important;
+  margin-right: 8.33333% !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+
+}
+
+.containerModal{
+  margin-bottom: 16px !important;
+  width: 100% !important;
+  margin-right: 8.33333% !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
 
 }
 
@@ -38,16 +48,17 @@
 
 .indivGraph{
 
-  width: 495px;
-  display: flex;
-  align-items:stretch;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
 }
 
 .ratingTitle{
   align-self: flex-start;
   vertical-align: center;
+  width: 100% !important;
+
 
 }
 

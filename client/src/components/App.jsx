@@ -5,7 +5,8 @@ import classes from './App.module.css'
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
 import UserReviews from './userReviews/UserReviews';
-import ShowAll from './showAll/ShowAll'
+import ShowAll from './showAll/ShowAll';
+import ListingHeader from './ListingHeader';
 
 class App extends React.Component {
   constructor() {
@@ -27,7 +28,9 @@ class App extends React.Component {
       showModal: false,
       numReviews: undefined,
       overallRatingAvg: undefined,
-      categorySelected: 'Great location',
+      categorySelected: {
+        title: undefined, count: undefined,
+      },
     };
   }
 
@@ -52,14 +55,15 @@ class App extends React.Component {
   handleClick() {
     this.setState({
       showModal: true,
+
     });
   }
 
   handleCategorySelect() {
-    const category = event.target.id;
-    console.dir(category);
+    const categoryIndex = event.target.id;
+    const categorySelected = this.state.categories[categoryIndex]
     this.setState({
-      categorySelected: category,
+      categorySelected: categorySelected,
     });
     this.handleClick();
   }
@@ -67,34 +71,41 @@ class App extends React.Component {
   closeModal() {
     this.setState({
       showModal: false,
+      categorySelected: {
+        title: undefined, count: undefined,
+      },
     });
   }
 
   render() {
     let reviewsInModal;
 
-    if (!this.state.categorySelected){
-      reviewsInModal= this.state.reviews
+    if (!this.state.categorySelected.title) {
+      reviewsInModal = this.state.reviews
     } else {
-      reviewsInModal= this.state.reviews.filter(review => review.category === this.state.categorySelected)
-      console.log(reviewsInModal)
+      // eslint-disable-next-line max-len
+      reviewsInModal= this.state.reviews.filter(review => review.category === this.state.categorySelected.title)
+      console.log(reviewsInModal);
     }
 
     return (
       <div className={classes.container}>
-        <div className={classes.header}>
-          <span className={classes.star}> &#9733;</span>
-        <span className={classes.headerText}> {this.state.overallRatingAvg} ({this.state.numReviews} reviews) </span>
-        </div>
+        <ListingHeader
+        overallRatingAvg={this.state.overallRatingAvg}
+        numReviews={this.state.numReviews}
+        />
         <div>
-          <CategoryGraphs ratings={this.state.reviewRatings} />
-          <CategoryControl categories={this.state.categories} clicked={this.handleCategorySelect.bind(this)}/>
+          <CategoryGraphs ratings={this.state.reviewRatings} isForModal={false}/>
+          <CategoryControl categories={this.state.categories}
+            clicked={this.handleCategorySelect.bind(this)}/>
           <UserReviews reviews={this.state.reviews}/>
 
-          <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}>
-            <CategoryGraphs ratings={this.state.reviewRatings} />
-            <CategoryControl categories={this.state.categories} clicked={this.handleCategorySelect.bind(this)}/>
-            <UserReviews reviews={reviewsInModal}/>
+          <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}
+          categorySelected={this.state.categorySelected} overallRatingAvg={this.state.overallRatingAvg} numReviews={this.state.numReviews}>
+            <CategoryGraphs ratings={this.state.reviewRatings} isForModal={true}/>
+            <CategoryControl categories={this.state.categories}
+            clicked={this.handleCategorySelect.bind(this)}/>
+            <UserReviews reviews={reviewsInModal} dummyFunc={() => {}} />
           </ShowAll>
 
           <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>

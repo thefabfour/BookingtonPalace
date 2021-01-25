@@ -8,6 +8,8 @@ import App from '../client/src/components/App'
 describe('App', () => {
   it('renders the App component', () => {
     render(<App />);
-    screen.debug();
+    // screen.debug();
   });
+
+
 });

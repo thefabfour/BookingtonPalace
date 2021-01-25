@@ -13,13 +13,12 @@ import sampleData from '../__testData__/sampleData'
 describe('ShowAll', () => {
   it('renders the CategoryGraphs component', () => {
     render(
-      <ShowAll show={true} close={false}>
-      <CategoryGraphs ratings={[]} />
+      <ShowAll show={true} close={()=>{}}>
+      <CategoryGraphs ratings={[]} clicked={()=>{}} />
       <CategoryControl categories={[]} clicked={()=>{}}/>
       <UserReviews reviews={[]}/>
     </ShowAll>
-
     );
-    screen.debug();
+    // screen.debug();
   });
 });

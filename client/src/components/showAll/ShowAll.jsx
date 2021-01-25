@@ -5,7 +5,17 @@ import Backdrop from './backdrop/Backdrop';
 import ShowAllHeader from './ShowAllHeader';
 import classes from './ShowAll.module.css';
 
-export default function ShowAll({ show, close, children }) {
+export default function ShowAll({
+  show, close, categorySelected, numReviews, overallRatingAvg, children,
+}) {
+  let bannerSentence;
+
+  if (categorySelected.title) {
+    bannerSentence = `Showing all ${categorySelected.count} reviews with ${categorySelected.title}`;
+  } else {
+    bannerSentence = '';
+  }
+
   return (
     <>
       <Backdrop show={show} clicked={close} />
@@ -15,13 +25,20 @@ export default function ShowAll({ show, close, children }) {
       >
         <div className={classes.exitBar}>
           <BsX type="button" onClick={close} className={classes.exitBtn} />
-          <ShowAllHeader />
+          <ShowAllHeader
+            categorySelected={categorySelected.title}
+            numReviews={numReviews}
+            overallRatingAvg={overallRatingAvg}
+          />
           <div className={classes.something}>
             <div className={classes.graphsAndButtonContainer}>
               {children[0]}
               {children[1]}
             </div>
             <div className={classes.reviewsContainer}>
+              <div className={classes.listDescription}>
+                {bannerSentence}
+              </div>
               {children[2]}
             </div>
           </div>
