@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { BsX } from 'react-icons/bs';
 import Backdrop from './backdrop/Backdrop';
@@ -9,6 +9,12 @@ export default function ShowAll({
   // eslint-disable-next-line react/prop-types
   show, close, categorySelected, numReviews, overallRatingAvg, children,
 }) {
+  // const [textSearched, setTextSearched] = useState('');
+
+  // const handleSearch = (event) => {
+  //   setTextSearched = event.target.value;
+  // };
+
   let bannerSentence;
 
   // eslint-disable-next-line react/prop-types
