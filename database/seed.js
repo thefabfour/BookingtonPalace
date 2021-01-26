@@ -39,7 +39,8 @@ for (let i = 0; i < 100; i += 1) {
         lastName: faker.name.lastName(),
         email: faker.internet.email(),
         // eslint-disable-next-line no-useless-concat
-        pictureUrl: `${'https://source.unsplash.com/collection/888146/300x300' + '?dummy=848474'}${k}`,
+        // eslint-disable-next-line prefer-template
+        pictureUrl: 'https://source.unsplash.com/collection/888146/300x300"+"?dummy=848474' + k,
         password: faker.internet.password(),
       },
       body: faker.lorem.paragraph(),
