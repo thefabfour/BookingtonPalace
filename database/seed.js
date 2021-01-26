@@ -38,7 +38,8 @@ for (let i = 0; i < 100; i += 1) {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         email: faker.internet.email(),
-        pictureUrl: "https://source.unsplash.com/collection/888146/300x300"+"?dummy=848474" +k,
+        // eslint-disable-next-line no-useless-concat
+        pictureUrl: `${'https://source.unsplash.com/collection/888146/300x300' + '?dummy=848474'}${k}`,
         password: faker.internet.password(),
       },
       body: faker.lorem.paragraph(),
@@ -47,8 +48,6 @@ for (let i = 0; i < 100; i += 1) {
     });
   }
 
-
-
   sampleReviews.push({
 
     listing_id: listingId,
@@ -56,20 +55,18 @@ for (let i = 0; i < 100; i += 1) {
     all_reviews: allReviews,
     review_categories: reviewCategories,
     review_ratings: [
-      {title: "Cleanliness", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
-      {title: "Communication", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
-      {title: "Check-In", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
-      {title: "Accuracy", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
-      {title: "Location", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
-      {title: "Value", rating: faker.random.float({min: 4.0, max: 5.0, precision: .1})},
+      { title: 'Cleanliness', rating: faker.random.float({ min: 4.0, max: 5.0, precision: 0.1 }) },
+      { title: 'Communication', rating: faker.random.float({ min: 4.0, max: 5.0, precision: 0.1 }) },
+      { title: 'Check-In', rating: faker.random.float({ min: 4.0, max: 5.0, precision: 0.1 }) },
+      { title: 'Accuracy', rating: faker.random.float({ min: 4.0, max: 5.0, precision: 0.1 }) },
+      { title: 'Location', rating: faker.random.float({ min: 4.0, max: 5.0, precision: 0.1 }) },
+      { title: 'Value', rating: faker.random.float({ min: 4.0, max: 5.0, precision: 0.1 }) },
     ],
-    overall_rating_avg: faker.random.float({min: 4.00, max: 5.00, precision: .01})
+    overall_rating_avg: faker.random.float({ min: 4.00, max: 5.00, precision: 0.01 }),
   });
 }
 
 const insertSampleReviews = () => Reviews.create(sampleReviews);
-
-console.log(sampleReviews[1])
 
 Promise.all([insertSampleReviews()])
   .then(() => {
