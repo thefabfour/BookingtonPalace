@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ReviewRender from './ReviewRender';
 import classes from './UserReviews.module.css';
 
+// eslint-disable-next-line react/prop-types
 export default function UserReviews({ reviews, dummyFunc }) {
   const itemsArr = reviews.slice(0, 6);
   const reviewsList = itemsArr.map((review, index) => (
