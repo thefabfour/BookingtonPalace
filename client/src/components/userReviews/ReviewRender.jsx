@@ -5,7 +5,7 @@ import ReviewHeader from './ReviewHeader';
 import classes from './UserReviews.module.css';
 
 export default function ReviewRender({
-  reviewBody, profilePicture, firstName, entryDate, userId, dummyFunc,
+  reviewBody, profilePicture, firstName, entryDate, userId,
 }) {
   const [isLongReview, setIsLongReview] = useState(false);
   useEffect(() => {
@@ -18,7 +18,6 @@ export default function ReviewRender({
   const [isShowMoreClicked, setIsShowMoreClicked] = useState(false);
 
   const handleShowMoreClick = () => {
-    dummyFunc();
     setIsShowMoreClicked(!isShowMoreClicked);
   };
 

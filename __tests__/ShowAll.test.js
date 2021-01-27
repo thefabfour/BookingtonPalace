@@ -14,7 +14,7 @@ describe('ShowAll', () => {
   it('renders the CategoryGraphs component', () => {
     render(
       <ShowAll show={true} close={()=>{}} categorySelected={{title: 'Great Location', count: 1}} numReviews={25} overallRatingAvg={4.3}>
-      <CategoryGraphs ratings={[]} clicked={()=>{}} />
+      <CategoryGraphs ratings={[]} clicked={()=>{}} isForModal={true}/>
       <CategoryControl categories={[]} clicked={()=>{}}/>
       <UserReviews reviews={[]}/>
     </ShowAll>

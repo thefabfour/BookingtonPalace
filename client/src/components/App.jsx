@@ -105,7 +105,7 @@ class App extends React.Component {
             <CategoryGraphs ratings={this.state.reviewRatings} isForModal={true}/>
             <CategoryControl categories={this.state.categories}
             clicked={this.handleCategorySelect.bind(this)}/>
-            <UserReviews reviews={reviewsInModal} dummyFunc={() => {}} />
+            <UserReviews reviews={reviewsInModal} />
           </ShowAll>
 
           <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>

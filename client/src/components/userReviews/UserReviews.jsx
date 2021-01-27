@@ -4,7 +4,7 @@ import ReviewRender from './ReviewRender';
 import classes from './UserReviews.module.css';
 
 // eslint-disable-next-line react/prop-types
-export default function UserReviews({ reviews, dummyFunc }) {
+export default function UserReviews({ reviews }) {
   const itemsArr = reviews.slice(0, 6);
   const reviewsList = itemsArr.map((review, index) => (
     <ReviewRender
@@ -15,7 +15,6 @@ export default function UserReviews({ reviews, dummyFunc }) {
       firstName={review.user_info.firstName}
       entryDate={review.entry_date}
       userId={review.user_info.user_id}
-      dummyFunc={dummyFunc}
     />
   ));
 

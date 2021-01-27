@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import PropTypes from 'prop-types';
 import classes from './App.module.css';
 
 export default function ListingHeader({ overallRatingAvg, numReviews }) {
@@ -13,8 +13,3 @@ export default function ListingHeader({ overallRatingAvg, numReviews }) {
     </div>
   );
 }
-
-ListingHeader.propTypes = {
-  overallRatingAvg: PropTypes.number.isRequired,
-  numReviews: PropTypes.string.isRequired,
-};

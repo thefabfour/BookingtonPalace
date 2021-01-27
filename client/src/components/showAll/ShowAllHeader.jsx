@@ -8,7 +8,7 @@ export default function ShowAllHeader({ overallRatingAvg, numReviews, onChange }
     <div className={classes.modalHeader}>
       <div className={classes.starAndText}>
         <span className={classes.star}> &#9733;</span>
-        <span className={classes.header}> {overallRatingAvg} ({numReviews}) </span>
+        <span className={classes.header}> {overallRatingAvg} ({numReviews} reviews) </span>
       </div>
       <div className={classes.searchBarContainer} onChange={onChange}>
         <form className={classes.searchBar}>
