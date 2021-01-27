@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../../axios';
 import classes from './App.module.css'
 
 import CategoryControl from './categoryButtons/CategoryControl';
@@ -35,7 +35,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/listing/reviews')
+    axios.get('/')
       .then((response) => {
         this.setState({
           reviews: response.data.all_reviews,

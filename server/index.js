@@ -1,35 +1,34 @@
 /* eslint-disable no-console */
 const express = require('express');
-const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
-const Reviews = require('../database/Reviews.js');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3002;
 const PUBLIC_DIR = path.resolve(__dirname, '..', 'client', 'dist');
+const router = require('./router');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// code that describes incoming request type and from where
-app.use((req, res, next) => {
-  console.log(`${req.method} coming in from ${req.url}`);
-  next();
-});
+app.use(cors());
+app.use(express.json());
 
 app.use(express.static(PUBLIC_DIR));
+app.use('/api/rooms/', router);
 
-app.get('/api/listing/reviews', (req, res) => {
-  const query = Reviews.where({ listing_id: 30506107 });
-  query.findOne((err, reviews) => {
-    if (err) {
-      res.status(404).send(err);
-    } else {
-      res.send(reviews);
-    }
-  });
-});
+// app.use('/reviews/:propertyId', express.static(PUBLIC_DIR));
+// app.use('/api/reviews/', router);
+
+// app.get('/api/rooms/', (req, res) => {
+//   console.log(req.params)
+//   const query = Reviews.where({ listing_id: 30506107 });
+//   query.findOne((err, reviews) => {
+//     if (err) {
+//       res.status(404).send(err);
+//     } else {
+//       res.send(reviews);
+//     }
+//   });
+// });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 });
