@@ -1,4 +1,4 @@
-const Reviews = require('../database/Reviews.js');
+const Reviews = require('../../database/Reviews.js');
 
 const reviews = (req, res) => {
   const { propertyId } = req.params;

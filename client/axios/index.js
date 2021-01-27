@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-const id = window.location.pathname;
+// const id = window.location.pathname;
+const id = new URLSearchParams(window.location.search).get('propertyId');
 // search.split('?propertyID=')[1];
 
 const instance = axios.create({
-  baseURL: `http://localhost:3002/api/reviews/${id}`,
+  baseURL: `/api/rooms/${id}/reviews`,
 });
 
 export default instance;
+
