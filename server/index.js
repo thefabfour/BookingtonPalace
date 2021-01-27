@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -19,16 +20,16 @@ app.use((req, res, next) => {
 app.use(express.static(PUBLIC_DIR));
 
 app.get('/api/listing/reviews', (req, res) => {
-  const query = Reviews.where({listing_id: 30506109})
-  query.findOne( function (err, reviews) {
+  const query = Reviews.where({ listing_id: 30506107 });
+  query.findOne((err, reviews) => {
     if (err) {
-      res.status(404).send(err)
+      res.status(404).send(err);
     } else {
-      res.send(reviews)
+      res.send(reviews);
     }
-  })
-})
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
-})
+});

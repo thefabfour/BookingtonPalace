@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReviewHeader from './ReviewHeader';
 import classes from './UserReviews.module.css';
 
 export default function ReviewRender({
-  reviewBody, profilePicture, firstName, entryDate, userId, dummyFunc
+  reviewBody, profilePicture, firstName, entryDate, userId, dummyFunc,
 }) {
   const [isLongReview, setIsLongReview] = useState(false);
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function ReviewRender({
   const [isShowMoreClicked, setIsShowMoreClicked] = useState(false);
 
   const handleShowMoreClick = () => {
-    dummyFunc;
+    dummyFunc();
     setIsShowMoreClicked(!isShowMoreClicked);
   };
 

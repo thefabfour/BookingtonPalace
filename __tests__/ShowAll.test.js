@@ -13,7 +13,7 @@ import sampleData from '../__testData__/sampleData'
 describe('ShowAll', () => {
   it('renders the CategoryGraphs component', () => {
     render(
-      <ShowAll show={true} close={()=>{}}>
+      <ShowAll show={true} close={()=>{}} categorySelected={{title: 'Great Location', count: 1}} numReviews={25} overallRatingAvg={4.3}>
       <CategoryGraphs ratings={[]} clicked={()=>{}} />
       <CategoryControl categories={[]} clicked={()=>{}}/>
       <UserReviews reviews={[]}/>

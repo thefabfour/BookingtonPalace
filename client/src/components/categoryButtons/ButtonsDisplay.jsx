@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import classes from './Buttons.module.css';
 
+// eslint-disable-next-line react/prop-types
 export default function ButtonsDisplay({ categories, clicked }) {
   return (
     <div id="ButtonList">
