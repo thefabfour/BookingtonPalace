@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from '../../axios';
-import classes from './App.module.css'
+import classes from './App.module.css';
 
 import CategoryControl from './categoryButtons/CategoryControl';
 import CategoryGraphs from './categoryGraphs/CategoryGraphs';
@@ -32,6 +32,10 @@ class App extends React.Component {
         title: undefined, count: undefined,
       },
     };
+
+    this.handleCategorySelect = this.handleCategorySelect.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.handleCategorySelect = this.handleCategorySelect.bind(this);
   }
 
   componentDidMount() {
@@ -46,9 +50,7 @@ class App extends React.Component {
         });
       })
       .catch((error) => {
-        if (!error.status) {
-          return;
-        }
+        throw new Error(error);
       });
   }
 
@@ -59,11 +61,13 @@ class App extends React.Component {
     });
   }
 
-  handleCategorySelect() {
+  handleCategorySelect(event) {
+    const { categories } = this.state;
+
     const categoryIndex = event.target.id;
-    const categorySelected = this.state.categories[categoryIndex]
+    const categorySelected = categories[categoryIndex];
     this.setState({
-      categorySelected: categorySelected,
+      categorySelected,
     });
     this.handleClick();
   }
@@ -79,32 +83,42 @@ class App extends React.Component {
 
   render() {
     let reviewsInModal;
+    const {
+      categorySelected, reviews, overallRatingAvg, numReviews, categories, reviewRatings, showModal,
+    } = this.state;
 
-    if (!this.state.categorySelected.title) {
-      reviewsInModal = this.state.reviews
+    if (!categorySelected.title) {
+      reviewsInModal = reviews;
     } else {
-      // eslint-disable-next-line max-len
-      reviewsInModal= this.state.reviews.filter(review => review.category === this.state.categorySelected.title)
-      console.log(reviewsInModal);
+      reviewsInModal = reviews.filter((review) => review.category === categorySelected.title);
     }
 
     return (
       <div className={classes.container}>
         <ListingHeader
-        overallRatingAvg={this.state.overallRatingAvg}
-        numReviews={this.state.numReviews}
+          overallRatingAvg={overallRatingAvg}
+          numReviews={numReviews}
         />
         <div>
-          <CategoryGraphs ratings={this.state.reviewRatings} isForModal={false}/>
-          <CategoryControl categories={this.state.categories}
-            clicked={this.handleCategorySelect.bind(this)}/>
-          <UserReviews reviews={this.state.reviews}/>
+          <CategoryGraphs ratings={reviewRatings} isForModal={false} />
+          <CategoryControl
+            categories={categories}
+            clicked={this.handleCategorySelect}
+          />
+          <UserReviews reviews={reviews} />
 
-          <ShowAll show={this.state.showModal} close={this.closeModal.bind(this)}
-          categorySelected={this.state.categorySelected} overallRatingAvg={this.state.overallRatingAvg} numReviews={this.state.numReviews}>
-            <CategoryGraphs ratings={this.state.reviewRatings} isForModal={true}/>
-            <CategoryControl categories={this.state.categories}
-            clicked={this.handleCategorySelect.bind(this)}/>
+          <ShowAll
+            show={showModal}
+            close={this.closeModal}
+            categorySelected={categorySelected}
+            overallRatingAvg={overallRatingAvg}
+            numReviews={numReviews}
+          >
+            <CategoryGraphs ratings={reviewRatings} isForModal />
+            <CategoryControl
+              categories={categories}
+              clicked={this.handleCategorySelect}
+            />
             <UserReviews reviews={reviewsInModal} />
           </ShowAll>
 
