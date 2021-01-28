@@ -9,7 +9,7 @@
     "start": "nodemon server/index.js",
     "build": "webpack --watch",
     "seed": "node database/seed.js",
-    "lint": "eslint . --ext .js,.jsx --ignore-pattern node_modules/ --ignore-pattern __tests__/ --ignore-pattern client/dist/"
+    "lint": "eslint . --ext .js,.jsx"
   },
   "repository": {
     "type": "git",
@@ -70,5 +70,31 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
     }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react"
+    ],
+    "extends": [
+      "plugin:react/recommended",
+      "airbnb"
+    ],
+    "rules": {},
+    "ignorePatterns": [
+      "__tests__",
+      "__testData__",
+      "/client/dist"
+    ]
   }
 }

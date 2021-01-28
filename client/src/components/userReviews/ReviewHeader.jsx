@@ -10,7 +10,7 @@ export default function ReviewsHeader({ profilePicture, firstName, entryDate }) 
       <div className={classes.textContainer}>
         {firstName}
         <div className={classes.date}>
-          {moment(entryDate).format('MMMM YYYY')}
+          {moment(new Date(entryDate)).format('MMMM YYYY')}
         </div>
       </div>
     </div>
