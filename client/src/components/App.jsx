@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from '../../axios';
 import classes from './App.module.css';
@@ -14,7 +16,6 @@ class App extends React.Component {
     this.state = {
       reviews: [],
       categories: [
-        { title: 'Central location', count: 1 },
         { title: 'Responsive host', count: 2 },
         { title: 'Helpful host', count: 2 },
         { title: 'Great restaurants', count: 2 },
@@ -31,6 +32,7 @@ class App extends React.Component {
       categorySelected: {
         title: undefined, count: undefined,
       },
+      textSearched: '',
     };
 
     this.handleCategorySelect = this.handleCategorySelect.bind(this);
@@ -58,6 +60,12 @@ class App extends React.Component {
     this.setState({
       showModal: true,
 
+    });
+  }
+
+  handleSearch(text) {
+    this.setState({
+      textSearched: text,
     });
   }
 
@@ -105,7 +113,7 @@ class App extends React.Component {
             categories={categories}
             clicked={this.handleCategorySelect}
           />
-          <UserReviews reviews={reviews} />
+          <UserReviews reviews={reviews} showModal={this.state.showModal} />
 
           <ShowAll
             show={showModal}
@@ -113,13 +121,18 @@ class App extends React.Component {
             categorySelected={categorySelected}
             overallRatingAvg={overallRatingAvg}
             numReviews={numReviews}
+            highlightWords={this.handleSearch.bind(this)}
           >
             <CategoryGraphs ratings={reviewRatings} isForModal />
             <CategoryControl
               categories={categories}
               clicked={this.handleCategorySelect}
             />
-            <UserReviews reviews={reviewsInModal} />
+            <UserReviews
+              reviews={reviewsInModal}
+              showModal={this.state.showModal}
+              textSearched={this.state.textSearched}
+            />
           </ShowAll>
 
           <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>

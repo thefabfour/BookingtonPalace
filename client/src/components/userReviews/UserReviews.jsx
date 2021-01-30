@@ -4,8 +4,15 @@ import ReviewRender from './ReviewRender';
 import classes from './UserReviews.module.css';
 
 // eslint-disable-next-line react/prop-types
-export default function UserReviews({ reviews }) {
+export default function UserReviews({ reviews, showModal, textSearched }) {
   const itemsArr = reviews.slice(0, 6);
+
+  let highlightText;
+  if (!showModal) {
+    highlightText = '';
+  } else {
+    highlightText = textSearched;
+  }
   const reviewsList = itemsArr.map((review, index) => (
     <ReviewRender
       // eslint-disable-next-line react/no-array-index-key
@@ -15,6 +22,7 @@ export default function UserReviews({ reviews }) {
       firstName={review.user_info.firstName}
       entryDate={review.entry_date}
       userId={review.user_info.user_id}
+      hightlightText={highlightText}
     />
   ));
 
