@@ -15,7 +15,7 @@ for (let i = 0; i < 100; i += 1) {
 
   const numberReviews = Math.floor(Math.random() * 50);
 
-  for (let k = 0; k < numberReviews; k += 1) {
+  for (let k = 10; k < numberReviews; k += 1) {
     const listingCategory = categories[Math.floor(Math.random() * 11)];
 
     if (reviewCategoriesMap[listingCategory] === undefined) {
@@ -63,7 +63,7 @@ for (let i = 0; i < 100; i += 1) {
       { title: 'Location', rating: faker.random.float({ min: 4.0, max: 5.0, precision: 0.1 }) },
       { title: 'Value', rating: faker.random.float({ min: 4.0, max: 5.0, precision: 0.1 }) },
     ],
-    overall_rating_avg: faker.random.float({ min: 4.00, max: 5.00, precision: 0.01 }),
+    overall_rating_avg: faker.random.float({ min: 4.50, max: 5.00, precision: 0.01 }),
   });
 }
 

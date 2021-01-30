@@ -64,12 +64,14 @@
 
 .ratingNum{
   align-self: center;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .ratingBar{
   align-self: center;
   padding-right: 20px;
+
 }
 .pushRight{
     display: flex;

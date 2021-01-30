@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  reviews:
+    image: apat2010/listings
+    depends_on:
+      - 'database'
+    ports:
+      - '80:3002'
+
+  database:
+    image: mongo:latest
+
+
+
+
