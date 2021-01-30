@@ -2,6 +2,7 @@ version: '3'
 
 services:
   reviews:
+    build: ./
     image: apat2010/listings
     depends_on:
       - 'database'
