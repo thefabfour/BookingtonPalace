@@ -1,8 +1,17 @@
 .container{
-  width: 1100px;
-  position: center;
-  padding-left: 40 px;
-  padding-right: 40 px;
+  /* width: 1100px; */
+  /* padding-left: 40 px;
+  padding-right: 40 px; */
+  width: 100%;
+  border: 1px dashed blue;
+}
+
+.proxySettings{
+    width: 1128px;
+    padding-left: 40 px;
+    padding-right: 40 px;
+    border: 1px dashed red;
+
 }
 
 

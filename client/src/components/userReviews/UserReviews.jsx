@@ -5,13 +5,14 @@ import classes from './UserReviews.module.css';
 
 // eslint-disable-next-line react/prop-types
 export default function UserReviews({ reviews, showModal, textSearched }) {
-  const itemsArr = reviews.slice(0, 6);
-
+  let itemsArr;
   let highlightText;
   if (!showModal) {
     highlightText = '';
+    itemsArr = reviews.slice(0, 6);
   } else {
     highlightText = textSearched;
+    itemsArr = reviews;
   }
   const reviewsList = itemsArr.map((review, index) => (
     <ReviewRender

@@ -7,15 +7,9 @@ import ShowAllHeader from './ShowAllHeader';
 import classes from './ShowAll.module.css';
 
 export default function ShowAll({
-  show, close, categorySelected, numReviews, overallRatingAvg, children, highlightWords,
+  show, close, categorySelected, numReviews,
+  overallRatingAvg, children, highlightWords, bannerSentence,
 }) {
-  let bannerSentence;
-  if (categorySelected.title) {
-    bannerSentence = `Showing all ${categorySelected.count} reviews with ${categorySelected.title}`;
-  } else {
-    bannerSentence = '';
-  }
-
   return (
     <>
       <Backdrop show={show} clicked={close} />

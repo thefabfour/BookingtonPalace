@@ -65,6 +65,9 @@ class App extends React.Component {
 
   handleSearch(text) {
     this.setState({
+      categorySelected: {
+        title: undefined, count: undefined,
+      },
       textSearched: text,
     });
   }
@@ -91,51 +94,65 @@ class App extends React.Component {
 
   render() {
     let reviewsInModal;
+    let numMatchingCriteria;
+    let bannerSentence;
     const {
-      categorySelected, reviews, overallRatingAvg, numReviews, categories, reviewRatings, showModal,
+      categorySelected, reviews, overallRatingAvg,
+      numReviews, categories, reviewRatings, showModal, textSearched,
     } = this.state;
 
-    if (!categorySelected.title) {
-      reviewsInModal = reviews;
-    } else {
+    if (categorySelected.title) {
       reviewsInModal = reviews.filter((review) => review.category === categorySelected.title);
+      numMatchingCriteria = reviewsInModal.length;
+      bannerSentence = `Showing all ${numMatchingCriteria} reviews with "${categorySelected.title}"`;
+    } else if (textSearched !== '') {
+      reviewsInModal = reviews.filter((review) => review.body.indexOf(textSearched) !== -1);
+      numMatchingCriteria = reviewsInModal.length;
+      bannerSentence = `Showing all ${numMatchingCriteria} reviews with "${textSearched}"`;
+    } else {
+      reviewsInModal = reviews;
+      bannerSentence = '';
     }
 
     return (
-      <div className={classes.container}>
-        <ListingHeader
-          overallRatingAvg={overallRatingAvg}
-          numReviews={numReviews}
-        />
-        <div>
-          <CategoryGraphs ratings={reviewRatings} isForModal={false} />
-          <CategoryControl
-            categories={categories}
-            clicked={this.handleCategorySelect}
-          />
-          <UserReviews reviews={reviews} showModal={this.state.showModal} />
-
-          <ShowAll
-            show={showModal}
-            close={this.closeModal}
-            categorySelected={categorySelected}
+      <div className={classes.proxySettings}>
+        <div className={classes.container}>
+          <ListingHeader
             overallRatingAvg={overallRatingAvg}
             numReviews={numReviews}
-            highlightWords={this.handleSearch.bind(this)}
-          >
-            <CategoryGraphs ratings={reviewRatings} isForModal />
+          />
+          <div>
+            <CategoryGraphs ratings={reviewRatings} isForModal={false} />
             <CategoryControl
               categories={categories}
               clicked={this.handleCategorySelect}
             />
-            <UserReviews
-              reviews={reviewsInModal}
-              showModal={this.state.showModal}
-              textSearched={this.state.textSearched}
-            />
-          </ShowAll>
+            <UserReviews reviews={reviews} showModal={this.state.showModal} />
 
-          <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
+            <ShowAll
+              show={showModal}
+              close={this.closeModal}
+              categorySelected={categorySelected}
+              overallRatingAvg={overallRatingAvg}
+              numReviews={numReviews}
+              highlightWords={this.handleSearch.bind(this)}
+              textSearched={this.state.textSearched}
+              bannerSentence={bannerSentence}
+            >
+              <CategoryGraphs ratings={reviewRatings} isForModal />
+              <CategoryControl
+                categories={categories}
+                clicked={this.handleCategorySelect}
+              />
+              <UserReviews
+                reviews={reviewsInModal}
+                showModal={this.state.showModal}
+                textSearched={this.state.textSearched}
+              />
+            </ShowAll>
+
+            <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
+          </div>
         </div>
       </div>
     );
