@@ -115,44 +115,42 @@ class App extends React.Component {
     }
 
     return (
-      <div className={classes.proxySettings}>
-        <div className={classes.container}>
-          <ListingHeader
+      <div className={classes.container}>
+        <ListingHeader
+          overallRatingAvg={overallRatingAvg}
+          numReviews={numReviews}
+        />
+        <div>
+          <CategoryGraphs ratings={reviewRatings} isForModal={false} />
+          <CategoryControl
+            categories={categories}
+            clicked={this.handleCategorySelect}
+          />
+          <UserReviews reviews={reviews} showModal={this.state.showModal} />
+
+          <ShowAll
+            show={showModal}
+            close={this.closeModal}
+            categorySelected={categorySelected}
             overallRatingAvg={overallRatingAvg}
             numReviews={numReviews}
-          />
-          <div>
-            <CategoryGraphs ratings={reviewRatings} isForModal={false} />
+            highlightWords={this.handleSearch.bind(this)}
+            textSearched={this.state.textSearched}
+            bannerSentence={bannerSentence}
+          >
+            <CategoryGraphs ratings={reviewRatings} isForModal />
             <CategoryControl
               categories={categories}
               clicked={this.handleCategorySelect}
             />
-            <UserReviews reviews={reviews} showModal={this.state.showModal} />
-
-            <ShowAll
-              show={showModal}
-              close={this.closeModal}
-              categorySelected={categorySelected}
-              overallRatingAvg={overallRatingAvg}
-              numReviews={numReviews}
-              highlightWords={this.handleSearch.bind(this)}
+            <UserReviews
+              reviews={reviewsInModal}
+              showModal={this.state.showModal}
               textSearched={this.state.textSearched}
-              bannerSentence={bannerSentence}
-            >
-              <CategoryGraphs ratings={reviewRatings} isForModal />
-              <CategoryControl
-                categories={categories}
-                clicked={this.handleCategorySelect}
-              />
-              <UserReviews
-                reviews={reviewsInModal}
-                showModal={this.state.showModal}
-                textSearched={this.state.textSearched}
-              />
-            </ShowAll>
+            />
+          </ShowAll>
 
-            <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
-          </div>
+          <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>
         </div>
       </div>
     );
