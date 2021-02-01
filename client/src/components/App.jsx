@@ -79,16 +79,19 @@ class App extends React.Component {
     const categorySelected = categories[categoryIndex];
     this.setState({
       categorySelected,
+      textSearched: '',
     });
     this.handleClick();
   }
 
   closeModal() {
+    document.getElementById('searchBar').reset();
     this.setState({
       showModal: false,
       categorySelected: {
         title: undefined, count: undefined,
       },
+      textSearched: '',
     });
   }
 
@@ -104,11 +107,11 @@ class App extends React.Component {
     if (categorySelected.title) {
       reviewsInModal = reviews.filter((review) => review.category === categorySelected.title);
       numMatchingCriteria = reviewsInModal.length;
-      bannerSentence = `Showing all ${numMatchingCriteria} reviews with "${categorySelected.title}"`;
+      bannerSentence = `Showing ${numMatchingCriteria} reviews with "${categorySelected.title}"`;
     } else if (textSearched !== '') {
       reviewsInModal = reviews.filter((review) => review.body.indexOf(textSearched) !== -1);
       numMatchingCriteria = reviewsInModal.length;
-      bannerSentence = `Showing all ${numMatchingCriteria} reviews with "${textSearched}"`;
+      bannerSentence = `Showing ${numMatchingCriteria} reviews with "${textSearched}"`;
     } else {
       reviewsInModal = reviews;
       bannerSentence = '';

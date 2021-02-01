@@ -22,7 +22,7 @@ export default function ShowAllHeader({ overallRatingAvg, numReviews, highlightW
         <span className={classes.header}> {overallRatingAvg} ({numReviews} reviews) </span>
       </div>
       <div className={classes.searchBarContainer}>
-        <form className={classes.searchBar} onSubmit={handleSubmit}>
+        <form id="searchBar" className={classes.searchBar} onSubmit={handleSubmit}>
           <input className={classes.searchBar} onChange={handleChange} placeholder="Search reviews" />
         </form>
       </div>
