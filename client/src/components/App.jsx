@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
@@ -129,7 +130,7 @@ class App extends React.Component {
             categories={categories}
             clicked={this.handleCategorySelect}
           />
-          <UserReviews reviews={reviews} showModal={this.state.showModal} />
+          <UserReviews reviews={reviews} showModal={this.state.showModal} mainPage={true} />
 
           <ShowAll
             show={showModal}
@@ -150,6 +151,7 @@ class App extends React.Component {
               reviews={reviewsInModal}
               showModal={this.state.showModal}
               textSearched={this.state.textSearched}
+              mainPage={false}
             />
           </ShowAll>
 

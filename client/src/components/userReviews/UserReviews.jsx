@@ -4,10 +4,10 @@ import ReviewRender from './ReviewRender';
 import classes from './UserReviews.module.css';
 
 // eslint-disable-next-line react/prop-types
-export default function UserReviews({ reviews, showModal, textSearched }) {
+export default function UserReviews({ reviews, textSearched, mainPage }) {
   let itemsArr;
   let highlightText;
-  if (!showModal) {
+  if (mainPage) {
     highlightText = '';
     itemsArr = reviews.slice(0, 6);
   } else {
