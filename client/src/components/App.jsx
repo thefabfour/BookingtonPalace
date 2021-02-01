@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from '../../axios';
 import classes from './App.module.css';
@@ -14,7 +16,6 @@ class App extends React.Component {
     this.state = {
       reviews: [],
       categories: [
-        { title: 'Central location', count: 1 },
         { title: 'Responsive host', count: 2 },
         { title: 'Helpful host', count: 2 },
         { title: 'Great restaurants', count: 2 },
@@ -31,6 +32,7 @@ class App extends React.Component {
       categorySelected: {
         title: undefined, count: undefined,
       },
+      textSearched: '',
     };
 
     this.handleCategorySelect = this.handleCategorySelect.bind(this);
@@ -61,6 +63,15 @@ class App extends React.Component {
     });
   }
 
+  handleSearch(text) {
+    this.setState({
+      categorySelected: {
+        title: undefined, count: undefined,
+      },
+      textSearched: text,
+    });
+  }
+
   handleCategorySelect(event) {
     const { categories } = this.state;
 
@@ -68,29 +79,42 @@ class App extends React.Component {
     const categorySelected = categories[categoryIndex];
     this.setState({
       categorySelected,
+      textSearched: '',
     });
     this.handleClick();
   }
 
   closeModal() {
+    document.getElementById('searchBar').reset();
     this.setState({
       showModal: false,
       categorySelected: {
         title: undefined, count: undefined,
       },
+      textSearched: '',
     });
   }
 
   render() {
     let reviewsInModal;
+    let numMatchingCriteria;
+    let bannerSentence;
     const {
-      categorySelected, reviews, overallRatingAvg, numReviews, categories, reviewRatings, showModal,
+      categorySelected, reviews, overallRatingAvg,
+      numReviews, categories, reviewRatings, showModal, textSearched,
     } = this.state;
 
-    if (!categorySelected.title) {
-      reviewsInModal = reviews;
-    } else {
+    if (categorySelected.title) {
       reviewsInModal = reviews.filter((review) => review.category === categorySelected.title);
+      numMatchingCriteria = reviewsInModal.length;
+      bannerSentence = `Showing ${numMatchingCriteria} reviews with "${categorySelected.title}"`;
+    } else if (textSearched !== '') {
+      reviewsInModal = reviews.filter((review) => review.body.indexOf(textSearched) !== -1);
+      numMatchingCriteria = reviewsInModal.length;
+      bannerSentence = `Showing ${numMatchingCriteria} reviews with "${textSearched}"`;
+    } else {
+      reviewsInModal = reviews;
+      bannerSentence = '';
     }
 
     return (
@@ -105,7 +129,7 @@ class App extends React.Component {
             categories={categories}
             clicked={this.handleCategorySelect}
           />
-          <UserReviews reviews={reviews} />
+          <UserReviews reviews={reviews} showModal={this.state.showModal} />
 
           <ShowAll
             show={showModal}
@@ -113,13 +137,20 @@ class App extends React.Component {
             categorySelected={categorySelected}
             overallRatingAvg={overallRatingAvg}
             numReviews={numReviews}
+            highlightWords={this.handleSearch.bind(this)}
+            textSearched={this.state.textSearched}
+            bannerSentence={bannerSentence}
           >
             <CategoryGraphs ratings={reviewRatings} isForModal />
             <CategoryControl
               categories={categories}
               clicked={this.handleCategorySelect}
             />
-            <UserReviews reviews={reviewsInModal} />
+            <UserReviews
+              reviews={reviewsInModal}
+              showModal={this.state.showModal}
+              textSearched={this.state.textSearched}
+            />
           </ShowAll>
 
           <button className={classes.showAllBtn} type="button" onClick={this.handleClick.bind(this)}> Show all reviews</button>

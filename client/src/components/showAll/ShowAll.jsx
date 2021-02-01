@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BsX } from 'react-icons/bs';
@@ -6,25 +7,9 @@ import ShowAllHeader from './ShowAllHeader';
 import classes from './ShowAll.module.css';
 
 export default function ShowAll({
-  // eslint-disable-next-line react/prop-types
-  show, close, categorySelected, numReviews, overallRatingAvg, children,
+  show, close, categorySelected, numReviews,
+  overallRatingAvg, children, highlightWords, bannerSentence,
 }) {
-  // const [textSearched, setTextSearched] = useState('');
-
-  // const handleSearch = (event) => {
-  //   setTextSearched = event.target.value;
-  // };
-
-  let bannerSentence;
-
-  // eslint-disable-next-line react/prop-types
-  if (categorySelected.title) {
-    // eslint-disable-next-line react/prop-types
-    bannerSentence = `Showing all ${categorySelected.count} reviews with ${categorySelected.title}`;
-  } else {
-    bannerSentence = '';
-  }
-
   return (
     <>
       <Backdrop show={show} clicked={close} />
@@ -39,6 +24,7 @@ export default function ShowAll({
             categorySelected={categorySelected.title}
             numReviews={numReviews}
             overallRatingAvg={overallRatingAvg}
+            highlightWords={highlightWords}
           />
           <div className={classes.something}>
             <div className={classes.graphsAndButtonContainer}>

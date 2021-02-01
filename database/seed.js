@@ -13,9 +13,9 @@ for (let i = 0; i < 100; i += 1) {
   const reviewCategoriesMap = {};
   const allReviews = [];
 
-  const numberReviews = Math.floor(Math.random() * 50);
+  const numberReviews = Math.floor(Math.random() * 50) + 10;
 
-  for (let k = 10; k < numberReviews; k += 1) {
+  for (let k = 0; k < numberReviews; k += 1) {
     const listingCategory = categories[Math.floor(Math.random() * 11)];
 
     if (reviewCategoriesMap[listingCategory] === undefined) {

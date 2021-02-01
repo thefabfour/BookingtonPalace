@@ -1,8 +1,11 @@
 .container{
-  width: 1100px;
-  position: center;
-  padding-left: 40 px;
-  padding-right: 40 px;
+  width: 100%;
+}
+
+.proxySettings{
+    width: 1128px;
+    padding-left: 40 px;
+    padding-right: 40 px;
 }
 
 
@@ -49,14 +52,8 @@
 
 .headerText{
   padding-top:20px;
-<<<<<<< HEAD
   font-size: 2.0rem;
   font-weight: 600;
-=======
-  font-size: 2.4rem;
-  font-weight: 600;
-
->>>>>>> 712931f (Removed unused packages, changed css styling location, about to start react.lazy()
 }
 
 .graphsInModal{

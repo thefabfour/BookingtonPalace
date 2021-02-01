@@ -1,11 +1,13 @@
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Highlighter from 'react-highlight-words';
 import ReviewHeader from './ReviewHeader';
 import classes from './UserReviews.module.css';
 
 export default function ReviewRender({
-  reviewBody, profilePicture, firstName, entryDate, userId,
+  reviewBody, profilePicture, firstName, entryDate, userId, hightlightText,
 }) {
   const [isLongReview, setIsLongReview] = useState(false);
   useEffect(() => {
@@ -24,7 +26,11 @@ export default function ReviewRender({
   function LongReview({ lengthReview }) {
     return (
       <div>
-        {lengthReview}
+        <Highlighter
+          searchWords={[hightlightText]}
+          autoEscape={true}
+          textToHighlight={lengthReview}
+        />
         <button className={classes.readMore} type="button" onClick={handleShowMoreClick} data-testid="readMore">
           {isShowMoreClicked ? 'read less' : 'read more'}
         </button>
@@ -35,7 +41,11 @@ export default function ReviewRender({
   function ShortReview({ lengthReview }) {
     return (
       <div>
-        {lengthReview}
+        <Highlighter
+          searchWords={[hightlightText]}
+          autoEscape={true}
+          textToHighlight={lengthReview}
+        />
       </div>
     );
   }
