@@ -3,4 +3,4 @@
 
 Check out my 5min demo here! [Demo](https://youtu.be/5m8Xug6EbPI)
 
-![](BookingtonPdemo.gif)
+![](/ReadMeAssets/BookingtonPdemo.gif)
